@@ -79,12 +79,12 @@ export function ScreenshotGallery() {
                   key={shot.title}
                   className="min-w-0 shrink-0 grow-0 basis-[78%] pl-5 sm:basis-[48%] md:basis-[34%] lg:basis-[26%] xl:basis-[19.2%]"
                 >
-                  <div className="rounded-2xl border bg-card p-3 shadow-sm transition hover:shadow-md">
+                  <div className="glow-lift rounded-2xl border bg-card p-3 shadow-sm">
                     <img
                       src={shot.src}
                       alt={shot.alt}
-                      width={832}
-                      height={1792}
+                      width={1080}
+                      height={2400}
                       loading="lazy"
                       className="block w-full rounded-xl bg-muted object-cover"
                     />

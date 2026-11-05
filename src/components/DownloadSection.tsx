@@ -59,7 +59,7 @@ export function DownloadSection() {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-10">
           {/* Latest version card */}
-          <div className="glass-card h-fit rounded-3xl p-6 shadow-sm sm:p-8">
+          <div className="glass-card glow-always h-fit rounded-3xl p-6 shadow-sm sm:p-8">
             <div className="flex items-center gap-4">
               <LogoIcon iconSize={56} />
               <div className="min-w-0">
