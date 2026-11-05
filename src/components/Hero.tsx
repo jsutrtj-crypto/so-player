@@ -1,8 +1,8 @@
 import { Download, Play, ShieldCheck, Zap, MonitorSmartphone } from "lucide-react";
 import { PhoneMockup } from "@/components/PhoneMockup";
-import screenHome from "@/assets/screen-home.jpg";
-import screenShorts from "@/assets/screen-shorts.jpg";
-import screenMusic from "@/assets/screen-music.jpg";
+import screenHome from "@/assets/screen-home.png";
+import screenShorts from "@/assets/screen-shorts.png";
+import screenMusic from "@/assets/screen-music.png";
 import { siteConfig } from "@/data/site";
 
 const benefits = [

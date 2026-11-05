@@ -1,10 +1,8 @@
-import screenHome from "@/assets/screen-home.jpg";
-import screenShorts from "@/assets/screen-shorts.jpg";
-import screenMusic from "@/assets/screen-music.jpg";
-import screenSubscriptions from "@/assets/screen-subscriptions.jpg";
-import screenLibrary from "@/assets/screen-library.jpg";
-import screenVideoPlayer from "@/assets/screen-video-player.jpg";
-import screenSettings from "@/assets/screen-settings.jpg";
+import screenHome from "@/assets/screen-home.png";
+import screenShorts from "@/assets/screen-shorts.png";
+import screenMusic from "@/assets/screen-music.png";
+import screenSubscriptions from "@/assets/screen-subscriptions.png";
+import screenLibrary from "@/assets/screen-library.png";
 
 export interface AppScreenshot {
   src: string;
@@ -18,42 +16,30 @@ export const appScreenshots: AppScreenshot[] = [
     src: screenHome,
     title: "Home",
     description: "Movies, shows and more.",
-    alt: "SO Player home screen with featured movies and shows",
+    alt: "SO Player home screen with movies and shows",
   },
   {
     src: screenShorts,
     title: "Shorts",
     description: "Short videos, endless fun.",
-    alt: "SO Player shorts feed playing a vertical video",
+    alt: "SO Player shorts feed",
   },
   {
     src: screenMusic,
     title: "Music",
     description: "Top songs and charts.",
-    alt: "SO Player music screen with top songs, charts and artists",
+    alt: "SO Player music screen with top songs and playlists",
   },
   {
     src: screenSubscriptions,
     title: "Subscriptions",
     description: "Follow your favourite channels.",
-    alt: "SO Player subscriptions screen with quick access",
+    alt: "SO Player subscriptions screen",
   },
   {
     src: screenLibrary,
     title: "Library",
     description: "History, downloads and more.",
-    alt: "SO Player library screen with watch history and downloads",
-  },
-  {
-    src: screenVideoPlayer,
-    title: "Watch & Play",
-    description: "Crisp player, likes and comments.",
-    alt: "SO Player video player screen with comments and recommendations",
-  },
-  {
-    src: screenSettings,
-    title: "Settings",
-    description: "Guest sign-in and So Engine.",
-    alt: "SO Player settings screen with So Engine toggles",
+    alt: "SO Player library screen with history and downloads",
   },
 ];
