@@ -101,7 +101,7 @@ export function ScreenshotGallery() {
                         loading="lazy"
                         className="pointer-events-none block w-full rounded-xl bg-muted object-cover"
                       />
-                      <figcaption className="flex items-center justify-between px-1 pb-1 pt-3">
+                      <div className="flex items-center justify-between px-1 pb-1 pt-3">
                         <div className="min-w-0">
                           <div className="font-display text-base font-bold">
                             {shot.title}
@@ -116,7 +116,7 @@ export function ScreenshotGallery() {
                             active && "rotate-180",
                           )}
                         />
-                      </figcaption>
+                      </div>
 
                       {/* Details that appear below the box when tapped */}
                       <div
