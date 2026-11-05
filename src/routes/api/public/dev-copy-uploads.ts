@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { existsSync } from "node:fs";
 import { copyFile, mkdir, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -21,7 +22,9 @@ export const Route = createFileRoute("/api/public/dev-copy-uploads")({
   server: {
     handlers: {
       GET: async () => {
-        const uploadsDir = "/mnt/user-uploads";
+        const uploadsDir = existsSync("/mnt/user-uploads")
+          ? "/mnt/user-uploads"
+          : "/tmp/user-uploads";
         const outDir = path.join(process.cwd(), "src", "assets");
         const results: Record<string, string> = {};
         try {
