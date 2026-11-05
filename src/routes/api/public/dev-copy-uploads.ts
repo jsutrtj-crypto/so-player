@@ -61,7 +61,7 @@ export const Route = createFileRoute("/api/public/dev-copy-uploads")({
         const results: Record<string, string> = {};
         try {
           const uploadsDir = await findUploadDir();
-          diagnostics.uploadsDir = uploadsDir ?? "NOT FOUND";
+          diagnostics["uploadsDir"] = uploadsDir ?? "NOT FOUND";
           if (!uploadsDir) {
             const payload = { ok: false, results, diagnostics };
             await writeFile("/tmp/copy-result.json", JSON.stringify(payload, null, 2));
