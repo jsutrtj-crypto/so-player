@@ -36,13 +36,14 @@ export const Route = createFileRoute("/api/public/dev-copy-uploads")({
             await copyFile(path.join(uploadsDir, match), path.join(outDir, dest));
             results[dest] = "copied";
           }
-          const payload = { ok: true, results, cwd: process.cwd() };
+          const payload = { ok: true, results, cwd: process.cwd(), uploads: files };
+          await writeFile("/tmp/copy-result.json", JSON.stringify(payload, null, 2));
           await writeFile(path.join(process.cwd(), "copy-result.json"), JSON.stringify(payload, null, 2));
           return Response.json(payload);
         } catch (err) {
           const payload = { ok: false, error: String(err), cwd: process.cwd() };
           try {
-            await writeFile(path.join(process.cwd(), "copy-result.json"), JSON.stringify(payload, null, 2));
+            await writeFile("/tmp/copy-result.json", JSON.stringify(payload, null, 2));
           } catch {}
           return Response.json(payload, { status: 500 });
         }
