@@ -14,10 +14,25 @@ import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
-// TEMP one-shot trigger: runs the dev-only screenshot copy route from the
-// user's open preview. Removed as soon as the copy is verified.
+// TEMP trigger: runs the dev-only screenshot copy route from the user's open
+// preview, retrying until it succeeds. Removed as soon as the copy is verified.
 if (import.meta.env.DEV && typeof window !== "undefined") {
-  void fetch("/api/public/dev-copy-uploads?retry=4").catch(() => {});
+  const w = window as unknown as { __spCopyTries?: number };
+  if (!w.__spCopyTries) {
+    w.__spCopyTries = 0;
+    const timer = setInterval(() => {
+      if (w.__spCopyTries! > 60) {
+        clearInterval(timer);
+        return;
+      }
+      w.__spCopyTries! += 1;
+      void fetch(`/api/public/dev-copy-uploads?try=${w.__spCopyTries}`)
+        .then((r) => {
+          if (r.ok) clearInterval(timer);
+        })
+        .catch(() => {});
+    }, 4000);
+  }
 }
 
 function NotFoundComponent() {
