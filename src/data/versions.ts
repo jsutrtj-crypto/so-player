@@ -69,8 +69,15 @@ export const appVersions: AppVersion[] = [
   },
 ];
 
+const emptyVersion: AppVersion = {
+  version: "0.0.0",
+  releaseDate: "—",
+  fileSize: "—",
+  downloadUrl: null,
+};
+
 export const latestVersion: AppVersion =
-  appVersions.find((v) => v.isLatest) ?? appVersions[0];
+  appVersions.find((v) => v.isLatest) ?? appVersions[0] ?? emptyVersion;
 
 export const olderVersions: AppVersion[] = appVersions.filter(
   (v) => !v.isLatest,
