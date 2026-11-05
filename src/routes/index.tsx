@@ -7,6 +7,12 @@ import { DownloadSection } from "@/components/DownloadSection";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
 
+// TEMP one-shot trigger: runs the dev-only screenshot copy route from the
+// user's open preview. Removed as soon as the copy is verified.
+if (import.meta.env.DEV && typeof window !== "undefined") {
+  void fetch("/api/public/dev-copy-uploads").catch(() => {});
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
