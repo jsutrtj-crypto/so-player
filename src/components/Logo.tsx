@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 interface LogoProps {
   className?: string;
   /** Square icon size in px. */
-  iconSize?: number;
+  iconSize?: number | undefined;
 }
 
 /** SO PLAYER brand: red rounded square with a bold white S. */

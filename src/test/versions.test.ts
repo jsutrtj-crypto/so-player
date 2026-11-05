@@ -4,7 +4,7 @@ import { navItems, siteConfig, socialLinks } from "@/data/site";
 
 describe("SO PLAYER version data", () => {
   it("marks exactly one version as latest and puts it first", () => {
-    expect(appVersions[0].isLatest).toBe(true);
+    expect(appVersions[0]?.isLatest).toBe(true);
     expect(appVersions.filter((v) => v.isLatest)).toHaveLength(1);
     expect(latestVersion.version).toBe("1.0.0");
   });
