@@ -184,12 +184,72 @@
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
-.glow-lift:hover {
+.glow-lift:hover,
+.glow-lift.is-active,
+.glow-lift:active {
   transform: translateY(-8px);
 }
-.glow-lift:hover::after {
+.glow-lift:hover::after,
+.glow-lift.is-active::after,
+.glow-lift:active::after {
   opacity: 1;
   animation: glow-colors 2.6s ease-in-out infinite;
+}
+/* On touch screens there is no hover — the lift also fires while tapping. */
+@media (hover: none) {
+  .glow-lift:hover {
+    transform: none;
+  }
+  .glow-lift:hover::after {
+    opacity: 0;
+    animation: none;
+  }
+  .glow-lift:active,
+  .glow-lift.is-active {
+    transform: translateY(-8px);
+  }
+}
+
+/* Colorful light running around all four sides of a box (version card). */
+@property --run-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.glow-run {
+  position: relative;
+  isolation: isolate;
+}
+.glow-run::before {
+  content: "";
+  position: absolute;
+  inset: -2.5px;
+  border-radius: inherit;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--run-angle),
+    var(--color-primary) 0deg,
+    color-mix(in oklab, var(--color-primary) 55%, transparent) 60deg,
+    transparent 110deg 160deg,
+    color-mix(in oklab, #ff8a92 95%, transparent) 205deg,
+    color-mix(in oklab, var(--color-primary) 45%, transparent) 245deg,
+    transparent 295deg
+  );
+  animation: run-around 3.6s linear infinite;
+}
+.glow-run::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  z-index: -2;
+  box-shadow: 0 0 24px 2px
+    color-mix(in oklab, var(--color-primary) 30%, transparent);
+}
+@keyframes run-around {
+  to {
+    --run-angle: 360deg;
+  }
 }
 
 /* Card with a gentle animated glow on all four sides, always on. */
@@ -234,11 +294,18 @@
 @media (prefers-reduced-motion: reduce) {
   .glow-lift,
   .glow-lift::after,
-  .glow-always::after {
-    animation: none;
+  .glow-always::after,
+  .glow-run::before {
+    animation: none !important;
     transition: none;
   }
-  .glow-always::after {
+  .glow-always::after,
+  .glow-run::before {
     opacity: 1;
+  }
+  .glow-lift:hover,
+  .glow-lift.is-active,
+  .glow-lift:active {
+    transform: none;
   }
 }
