@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { copyFile, mkdir, readdir } from "node:fs/promises";
+import { copyFile, mkdir, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 /**
@@ -36,12 +36,15 @@ export const Route = createFileRoute("/api/public/dev-copy-uploads")({
             await copyFile(path.join(uploadsDir, match), path.join(outDir, dest));
             results[dest] = "copied";
           }
-          return Response.json({ ok: true, results, cwd: process.cwd() });
+          const payload = { ok: true, results, cwd: process.cwd() };
+          await writeFile(path.join(process.cwd(), "copy-result.json"), JSON.stringify(payload, null, 2));
+          return Response.json(payload);
         } catch (err) {
-          return Response.json(
-            { ok: false, error: String(err), cwd: process.cwd() },
-            { status: 500 },
-          );
+          const payload = { ok: false, error: String(err), cwd: process.cwd() };
+          try {
+            await writeFile(path.join(process.cwd(), "copy-result.json"), JSON.stringify(payload, null, 2));
+          } catch {}
+          return Response.json(payload, { status: 500 });
         }
       },
     },
