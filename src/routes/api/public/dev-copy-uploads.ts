@@ -4,9 +4,9 @@ import { copyFile, mkdir, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 /**
- * DEV-ONLY helper: copies the user's uploaded real app screenshots from the
- * sandbox upload mount into src/assets. Runs only where /mnt/user-uploads
- * exists (this sandbox). Neutralized right after its single use.
+ * DEV-ONLY helper: copies the user's uploaded real app screenshots into
+ * src/assets. Runs only in this sandbox. Neutralized right after its use.
+ * Self-locating: probes several candidate upload mounts.
  */
 const MAP: Array<[prefix: string, dest: string]> = [
   ["Screenshot_2026-11-05-10-25-56-28", "screen-home.jpg"],
@@ -18,16 +18,55 @@ const MAP: Array<[prefix: string, dest: string]> = [
   ["Screenshot_2026-11-05-10-28-29-60", "screen-settings.jpg"],
 ];
 
+const CANDIDATE_DIRS = [
+  "/mnt/user-uploads",
+  "/tmp/user-uploads",
+  "/mnt/uploads",
+  "/user-uploads",
+  "/mnt/user-uploads/",
+];
+
+async function safeList(dir: string): Promise<string[] | string> {
+  try {
+    const entries = await readdir(dir);
+    return entries.slice(0, 40);
+  } catch (err) {
+    return String(err).slice(0, 120);
+  }
+}
+
+async function findUploadDir(): Promise<string | null> {
+  for (const dir of CANDIDATE_DIRS) {
+    try {
+      const entries = await readdir(dir);
+      if (entries.some((f) => f.startsWith("Screenshot_"))) return dir;
+    } catch {
+      // keep probing
+    }
+  }
+  return null;
+}
+
 export const Route = createFileRoute("/api/public/dev-copy-uploads")({
   server: {
     handlers: {
       GET: async () => {
-        const uploadsDir = existsSync("/mnt/user-uploads")
-          ? "/mnt/user-uploads"
-          : "/tmp/user-uploads";
         const outDir = path.join(process.cwd(), "src", "assets");
+        const diagnostics: Record<string, unknown> = {
+          cwd: process.cwd(),
+          root: await safeList("/"),
+          mnt: await safeList("/mnt"),
+          tmp: await safeList("/tmp"),
+        };
         const results: Record<string, string> = {};
         try {
+          const uploadsDir = await findUploadDir();
+          diagnostics.uploadsDir = uploadsDir ?? "NOT FOUND";
+          if (!uploadsDir) {
+            const payload = { ok: false, results, diagnostics };
+            await writeFile("/tmp/copy-result.json", JSON.stringify(payload, null, 2));
+            return Response.json(payload, { status: 500 });
+          }
           const files = await readdir(uploadsDir);
           await mkdir(outDir, { recursive: true });
           for (const [prefix, dest] of MAP) {
@@ -39,12 +78,11 @@ export const Route = createFileRoute("/api/public/dev-copy-uploads")({
             await copyFile(path.join(uploadsDir, match), path.join(outDir, dest));
             results[dest] = "copied";
           }
-          const payload = { ok: true, results, cwd: process.cwd(), uploads: files };
+          const payload = { ok: true, results, diagnostics };
           await writeFile("/tmp/copy-result.json", JSON.stringify(payload, null, 2));
-          await writeFile(path.join(process.cwd(), "copy-result.json"), JSON.stringify(payload, null, 2));
           return Response.json(payload);
         } catch (err) {
-          const payload = { ok: false, error: String(err), cwd: process.cwd() };
+          const payload = { ok: false, results, error: String(err), diagnostics };
           try {
             await writeFile("/tmp/copy-result.json", JSON.stringify(payload, null, 2));
           } catch {}
