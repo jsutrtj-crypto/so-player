@@ -11,8 +11,13 @@ const socialIcons = {
 
 export function Footer() {
   return (
-    <footer className="border-t bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="relative border-t bg-background">
+      {/* Brand gradient accent along the top edge */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"
+      />
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
           <div>
@@ -50,7 +55,7 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={s.label}
-                        className="grid size-10 place-items-center rounded-full border text-muted-foreground transition hover:border-primary hover:text-primary"
+                        className="grid size-10 place-items-center rounded-full border text-muted-foreground transition hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-[0_8px_20px_-8px_color-mix(in_oklab,var(--color-primary)_55%,transparent)]"
                       >
                         <Icon className="size-4.5" />
                       </a>

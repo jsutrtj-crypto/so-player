@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, ChevronDown, Download, HardDrive, Info } from "lucide-react";
+import { Calendar, ChevronDown, Download, HardDrive, Info, ShieldCheck, Sparkles, Zap } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { LogoIcon } from "@/components/Logo";
@@ -59,7 +59,7 @@ export function DownloadSection() {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-10">
           {/* Latest version card */}
-          <div className="glass-card glow-always h-fit rounded-3xl p-6 shadow-sm sm:p-8">
+          <div className="glass-card glow-run h-fit rounded-3xl p-6 shadow-sm sm:p-8">
             <div className="flex items-center gap-4">
               <LogoIcon iconSize={56} />
               <div className="min-w-0">
@@ -100,6 +100,22 @@ export function DownloadSection() {
             <div className="mt-6">
               <DownloadButton version={latestVersion} />
             </div>
+
+            {/* Trust badges under the download button */}
+            <ul className="mt-5 grid grid-cols-3 gap-2 text-center text-[11px] font-semibold text-muted-foreground sm:text-xs">
+              <li className="rounded-xl border bg-background/60 px-2 py-2.5">
+                <ShieldCheck className="mx-auto mb-1 size-4 text-primary" />
+                100% Safe APK
+              </li>
+              <li className="rounded-xl border bg-background/60 px-2 py-2.5">
+                <Zap className="mx-auto mb-1 size-4 text-primary" />
+                Lightweight
+              </li>
+              <li className="rounded-xl border bg-background/60 px-2 py-2.5">
+                <Sparkles className="mx-auto mb-1 size-4 text-primary" />
+                All-in-One
+              </li>
+            </ul>
           </div>
 
           {/* Older versions */}
