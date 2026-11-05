@@ -26,8 +26,8 @@ export const appVersions: AppVersion[] = [
   {
     version: "1.0.0",
     releaseDate: "Jun 20, 2025",
-    fileSize: "25 MB",
-    downloadUrl: null,
+    fileSize: "78.3 MB",
+    downloadUrl: "https://drive.google.com/uc?id=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0&export=download",
     isLatest: true,
     releaseNotes:
       "First official release. Movies, shows, music, shorts, subscriptions and personal library — all in one player.",

@@ -25,6 +25,13 @@ describe("SO PLAYER version data", () => {
       }
     }
   });
+
+  it("uses the supplied ShoPlayer APK and its actual Drive file size", () => {
+    expect(latestVersion.downloadUrl).toBe(
+      "https://drive.google.com/uc?id=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0&export=download",
+    );
+    expect(latestVersion.fileSize).toBe("78.3 MB");
+  });
 });
 
 describe("SO PLAYER site data", () => {
