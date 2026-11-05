@@ -35,7 +35,7 @@ export function Hero() {
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
               href="#download"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-base font-bold text-primary-foreground shadow-sm transition hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              className="btn-glow inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-base font-bold text-primary-foreground transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
               <Download className="size-5" strokeWidth={2.5} />
               Download APK

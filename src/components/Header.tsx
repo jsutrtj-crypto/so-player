@@ -54,7 +54,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href="#download"
-            className="hidden items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-sm transition hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:inline-flex"
+            className="btn-glow hidden items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-primary-foreground transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:inline-flex"
           >
             <Download className="size-4" strokeWidth={2.5} />
             Download APK
@@ -99,7 +99,7 @@ export function Header() {
           <a
             href="#download"
             onClick={() => setOpen(false)}
-            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition hover:bg-primary/90"
+            className="btn-glow mt-2 flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-primary-foreground transition hover:brightness-105"
           >
             <Download className="size-4" strokeWidth={2.5} />
             Download APK
