@@ -1,23 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { ScreenshotGallery } from "@/components/ScreenshotGallery";
+import { Features } from "@/components/Features";
+import { DownloadSection } from "@/components/DownloadSection";
+import { Footer } from "@/components/Footer";
+import { siteConfig } from "@/data/site";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "SO PLAYER — Your Entertainment, One Player" },
+      {
+        name: "description",
+        content:
+          "SO PLAYER is a powerful and lightweight Android media app for movies, shows, music, shorts and more. Download the latest APK, explore screenshots, features and version history.",
+      },
+      { property: "og:title", content: "SO PLAYER — Your Entertainment, One Player" },
+      {
+        property: "og:description",
+        content:
+          "A powerful and lightweight Android media app for movies, shows, music, shorts and more — all in one place.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:site_name", content: siteConfig.name },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      <main>
+        <Hero />
+        <ScreenshotGallery />
+        <Features />
+        <DownloadSection />
+      </main>
+      <Footer />
     </div>
   );
 }
