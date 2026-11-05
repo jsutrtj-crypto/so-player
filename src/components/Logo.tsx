@@ -6,20 +6,27 @@ interface LogoProps {
   iconSize?: number | undefined;
 }
 
-/** SO PLAYER brand: red rounded square with a bold white S. */
+/**
+ * SO PLAYER brand icon — drawn to match the official app logo:
+ * a bright red squircle with a white serif capital S.
+ */
 export function LogoIcon({ className, iconSize = 42 }: LogoProps) {
   return (
     <div
       className={cn(
-        "grid shrink-0 place-items-center rounded-[28%] bg-primary shadow-sm",
+        "grid shrink-0 place-items-center rounded-[30%] bg-primary shadow-sm",
         className,
       )}
       style={{ width: iconSize, height: iconSize }}
       aria-hidden="true"
     >
       <span
-        className="font-display font-extrabold text-primary-foreground"
-        style={{ fontSize: iconSize * 0.58, lineHeight: 1 }}
+        className="font-bold text-primary-foreground"
+        style={{
+          fontFamily: "Georgia, 'Times New Roman', serif",
+          fontSize: iconSize * 0.62,
+          lineHeight: 1,
+        }}
       >
         S
       </span>

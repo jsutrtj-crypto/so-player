@@ -30,7 +30,7 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="bg-muted/40 py-16 sm:py-20 lg:py-24">
+    <section id="features" className="section-glow py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -45,7 +45,7 @@ export function Features() {
           {features.map(({ icon: Icon, title, description }) => (
             <article
               key={title}
-              className="group rounded-2xl border bg-card p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-6"
+              className="group glass-card rounded-2xl p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-6"
             >
               <span className="grid size-11 place-items-center rounded-xl bg-secondary transition group-hover:scale-105">
                 <Icon className="size-5.5 text-primary" strokeWidth={2.2} />

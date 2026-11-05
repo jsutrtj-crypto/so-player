@@ -31,7 +31,7 @@ function DownloadButton({
       type="button"
       onClick={() => handleDownload(version)}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-xl bg-primary font-bold text-primary-foreground shadow-sm transition hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+        "btn-glow inline-flex items-center justify-center gap-2 rounded-2xl font-bold text-primary-foreground transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
         size === "lg" ? "w-full px-6 py-3.5 text-base" : "px-3.5 py-2 text-xs sm:text-sm",
         className,
       )}
@@ -46,7 +46,7 @@ export function DownloadSection() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section id="download" className="py-16 sm:py-20 lg:py-24">
+    <section id="download" className="section-glow py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -59,7 +59,7 @@ export function DownloadSection() {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-10">
           {/* Latest version card */}
-          <div className="h-fit rounded-3xl border bg-card p-6 shadow-sm sm:p-8">
+          <div className="glass-card h-fit rounded-3xl p-6 shadow-sm sm:p-8">
             <div className="flex items-center gap-4">
               <LogoIcon iconSize={56} />
               <div className="min-w-0">
