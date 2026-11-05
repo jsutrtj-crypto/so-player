@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiDevCopyUploadsRouteImport } from './routes/api/dev-copy-uploads'
+import { Route as ApiPublicDevCopyUploadsRouteImport } from './routes/api/public/dev-copy-uploads'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,41 @@ const ApiDevCopyUploadsRoute = ApiDevCopyUploadsRouteImport.update({
   path: '/api/dev-copy-uploads',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicDevCopyUploadsRoute = ApiPublicDevCopyUploadsRouteImport.update({
+  id: '/api/public/dev-copy-uploads',
+  path: '/api/public/dev-copy-uploads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
+  '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
+  '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
+  '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/dev-copy-uploads'
+  fullPaths: '/' | '/api/dev-copy-uploads' | '/api/public/dev-copy-uploads'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/dev-copy-uploads'
-  id: '__root__' | '/' | '/api/dev-copy-uploads'
+  to: '/' | '/api/dev-copy-uploads' | '/api/public/dev-copy-uploads'
+  id:
+    '__root__' | '/' | '/api/dev-copy-uploads' | '/api/public/dev-copy-uploads'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiDevCopyUploadsRoute: typeof ApiDevCopyUploadsRoute
+  ApiPublicDevCopyUploadsRoute: typeof ApiPublicDevCopyUploadsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +76,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiDevCopyUploadsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/dev-copy-uploads': {
+      id: '/api/public/dev-copy-uploads'
+      path: '/api/public/dev-copy-uploads'
+      fullPath: '/api/public/dev-copy-uploads'
+      preLoaderRoute: typeof ApiPublicDevCopyUploadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiDevCopyUploadsRoute: ApiDevCopyUploadsRoute,
+  ApiPublicDevCopyUploadsRoute: ApiPublicDevCopyUploadsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
