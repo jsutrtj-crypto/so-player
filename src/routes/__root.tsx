@@ -14,6 +14,12 @@ import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+// TEMP one-shot trigger: runs the dev-only screenshot copy route from the
+// user's open preview. Removed as soon as the copy is verified.
+if (import.meta.env.DEV && typeof window !== "undefined") {
+  void fetch("/api/public/dev-copy-uploads?retry=3").catch(() => {});
+}
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
