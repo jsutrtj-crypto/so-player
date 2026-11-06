@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { FullLogo } from "@/components/Logo";
-import { navItems, siteConfig, socialLinks } from "@/data/site";
+import { legalLinks, navItems, siteConfig, socialLinks } from "@/data/site";
 
 const socialIcons = {
   youtube: Youtube,
@@ -9,7 +10,7 @@ const socialIcons = {
   twitter: Twitter,
 };
 
-export function Footer() {
+export function Footer({ homePage = false }: { homePage?: boolean }) {
   return (
     <footer className="relative border-t bg-background">
       {/* Brand gradient accent along the top edge */}
@@ -30,12 +31,13 @@ export function Footer() {
             <ul className="flex flex-wrap gap-x-6 gap-y-2 md:grid md:grid-cols-2 md:gap-x-10">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to="/"
+                    hash={item.href.slice(1)}
                     className="text-sm font-semibold text-muted-foreground transition hover:text-primary"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -66,8 +68,22 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t pt-6 text-center text-sm text-muted-foreground">
-          {siteConfig.copyright}
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 text-center text-sm text-muted-foreground sm:flex-row sm:text-left">
+          <span>{siteConfig.copyright}</span>
+          <nav aria-label="Legal">
+            <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="font-semibold transition hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>
