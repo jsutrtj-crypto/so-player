@@ -189,6 +189,20 @@
 .glow-lift:active {
   transform: translateY(-8px);
 }
+.glow-lift:hover .title-glow,
+.glow-lift.is-active .title-glow {
+  color: var(--color-primary);
+  text-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 48%, transparent);
+}
+.title-glow {
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+.group:hover .title-glow {
+  color: var(--color-primary);
+  text-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 48%, transparent);
+}
 .glow-lift:hover::after,
 .glow-lift.is-active::after,
 .glow-lift:active::after {
@@ -294,6 +308,7 @@
 @media (prefers-reduced-motion: reduce) {
   .glow-lift,
   .glow-lift::after,
+  .title-glow,
   .glow-always::after,
   .glow-run::before {
     animation: none !important;

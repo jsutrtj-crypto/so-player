@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { appVersions, latestVersion, olderVersions } from "@/data/versions";
+import { privacyPolicy } from "@/data/privacy";
 import { navItems, siteConfig, socialLinks } from "@/data/site";
 
 describe("SO PLAYER version data", () => {
@@ -13,7 +14,7 @@ describe("SO PLAYER version data", () => {
     for (const v of appVersions) {
       expect(v.version).toMatch(/^\d+\.\d+\.\d+$/);
       expect(v.releaseDate.length).toBeGreaterThan(3);
-      expect(v.fileSize).toMatch(/\d+ MB$/);
+      expect(v.fileSize).toMatch(/\d+(?:\.\d+)? MB$/);
     }
     expect(olderVersions.length).toBeGreaterThan(0);
   });
@@ -56,5 +57,11 @@ describe("SO PLAYER site data", () => {
       if (!s.url) continue;
       expect(s.url.startsWith("https://")).toBe(true);
     }
+  });
+});
+
+describe("SO PLAYER privacy statement", () => {
+  it("matches the owner's statement that no personal information is collected", () => {
+    expect(privacyPolicy.websiteCollectsPersonalInformation).toBe(false);
   });
 });

@@ -91,7 +91,10 @@ export function ScreenshotGallery() {
                       onClick={() => toggleCard(i)}
                       aria-expanded={active}
                       aria-label={`${shot.title} screen — ${active ? "hide" : "show"} details`}
-                      className="glow-lift block w-full cursor-pointer rounded-2xl border bg-card p-3 text-left shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                      className={cn(
+                        "glow-lift block w-full cursor-pointer rounded-2xl border bg-card p-3 text-left shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+                        active && "is-active",
+                      )}
                     >
                       <img
                         src={shot.src}
@@ -103,7 +106,7 @@ export function ScreenshotGallery() {
                       />
                       <div className="flex items-center justify-between px-1 pb-1 pt-3">
                         <div className="min-w-0">
-                          <div className="font-display text-base font-bold">
+                          <div className="title-glow font-display text-base font-bold">
                             {shot.title}
                           </div>
                           <div className="mt-0.5 text-sm text-muted-foreground">
