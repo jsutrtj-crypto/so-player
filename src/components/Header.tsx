@@ -45,16 +45,16 @@ export function Header({
         {/* Desktop navigation */}
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
-              <Link
+            <Link
               key={item.href}
                 to="/"
                 hash={item.href.slice(1)}
-                onClick={() => setOpen(false)}
+              onClick={() => setOpen(false)}
               className={cn(
                 "rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors hover:bg-muted hover:text-primary",
-                active === item.href.slice(1) ? "text-primary" : "text-foreground",
+                homePage && active === item.href.slice(1) ? "text-primary" : "text-foreground",
               )}
-              aria-current={active === item.href.slice(1) ? "page" : undefined}
+              aria-current={homePage && active === item.href.slice(1) ? "page" : undefined}
             >
               {item.label}
               </Link>
@@ -112,7 +112,7 @@ export function Header({
               onClick={() => setOpen(false)}
               className={cn(
                 "block rounded-lg px-3 py-2.5 text-base font-semibold transition-colors hover:bg-muted hover:text-primary",
-                active === item.href.slice(1) ? "text-primary" : "text-foreground",
+                homePage && active === item.href.slice(1) ? "text-primary" : "text-foreground",
               )}
             >
               {item.label}

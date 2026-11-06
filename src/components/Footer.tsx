@@ -10,7 +10,7 @@ const socialIcons = {
   twitter: Twitter,
 };
 
-export function Footer({ homePage = false }: { homePage?: boolean }) {
+export function Footer() {
   return (
     <footer className="relative border-t bg-background">
       {/* Brand gradient accent along the top edge */}

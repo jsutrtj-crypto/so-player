@@ -42,7 +42,7 @@ function HomePage() {
         <Features />
         <DownloadSection />
       </main>
-      <Footer homePage />
+      <Footer />
     </div>
   );
 }
