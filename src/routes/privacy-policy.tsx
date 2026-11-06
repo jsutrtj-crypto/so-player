@@ -5,6 +5,7 @@ import { privacyPolicy } from "@/data/privacy";
 import { siteConfig } from "@/data/site";
 
 export const Route = createFileRoute("/privacy-policy")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Privacy Policy — SO PLAYER" },
