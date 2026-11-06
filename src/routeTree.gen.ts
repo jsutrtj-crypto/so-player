@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ApiDevCopyUploadsRouteImport } from './routes/api/dev-copy-uploads'
 import { Route as ApiPublicDevCopyUploadsRouteImport } from './routes/api/public/dev-copy-uploads'
 
@@ -30,6 +31,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiDevCopyUploadsRoute = ApiDevCopyUploadsRouteImport.update({
   id: '/api/dev-copy-uploads',
   path: '/api/dev-copy-uploads',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
@@ -69,6 +78,7 @@ export interface FileRouteTypes {
     | '/'
     | '/privacy-policy'
     | '/services'
+    | '/sitemap.xml'
     | '/api/dev-copy-uploads'
     | '/api/public/dev-copy-uploads'
   fileRoutesByTo: FileRoutesByTo
@@ -76,6 +86,7 @@ export interface FileRouteTypes {
     | '/'
     | '/privacy-policy'
     | '/services'
+    | '/sitemap.xml'
     | '/api/dev-copy-uploads'
     | '/api/public/dev-copy-uploads'
   id:
@@ -83,6 +94,7 @@ export interface FileRouteTypes {
     | '/'
     | '/privacy-policy'
     | '/services'
+    | '/sitemap.xml'
     | '/api/dev-copy-uploads'
     | '/api/public/dev-copy-uploads'
   fileRoutesById: FileRoutesById
@@ -91,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiDevCopyUploadsRoute: typeof ApiDevCopyUploadsRoute
   ApiPublicDevCopyUploadsRoute: typeof ApiPublicDevCopyUploadsRoute
 }
@@ -118,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/dev-copy-uploads': {
       id: '/api/dev-copy-uploads'
       path: '/api/dev-copy-uploads'
@@ -139,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiDevCopyUploadsRoute: ApiDevCopyUploadsRoute,
   ApiPublicDevCopyUploadsRoute: ApiPublicDevCopyUploadsRoute,
 }
