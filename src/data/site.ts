@@ -19,6 +19,11 @@ export const navItems: NavItem[] = [
   { label: "Version History", href: "#versions" },
 ];
 
+export const legalLinks = [
+  { label: "Services", href: "/services" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+] as const;
+
 /**
  * Social media links. Leave a URL empty until the real profile exists —
  * empty entries are not rendered as links anywhere on the site.

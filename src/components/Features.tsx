@@ -1,32 +1,4 @@
-import { Clapperboard, Music2, SquarePlay, UsersRound, Bookmark } from "lucide-react";
-
-const features = [
-  {
-    icon: Clapperboard,
-    title: "Movies & Shows",
-    description: "Watch the latest movies, web series and more.",
-  },
-  {
-    icon: Music2,
-    title: "Music",
-    description: "Discover and enjoy trending music and charts.",
-  },
-  {
-    icon: SquarePlay,
-    title: "Shorts",
-    description: "Short videos, big entertainment.",
-  },
-  {
-    icon: UsersRound,
-    title: "Subscriptions",
-    description: "Follow your favourite channels and creators.",
-  },
-  {
-    icon: Bookmark,
-    title: "Personal Library",
-    description: "Manage your history, downloads and playlists.",
-  },
-];
+import { features } from "@/data/features";
 
 export function Features() {
   return (
@@ -45,12 +17,12 @@ export function Features() {
           {features.map(({ icon: Icon, title, description }) => (
             <article
               key={title}
-              className="group glass-card rounded-2xl p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-6"
+              className="group glow-lift glass-card rounded-2xl p-5 shadow-sm transition duration-300 hover:shadow-md sm:p-6"
             >
               <span className="grid size-11 place-items-center rounded-xl bg-secondary transition group-hover:scale-105">
                 <Icon className="size-5.5 text-primary" strokeWidth={2.2} />
               </span>
-              <h3 className="mt-4 font-display text-base font-bold sm:text-lg">{title}</h3>
+              <h3 className="title-glow mt-4 font-display text-base font-bold sm:text-lg">{title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                 {description}
               </p>

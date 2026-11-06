@@ -35,14 +35,14 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Header />
+      <Header homePage />
       <main>
         <Hero />
         <ScreenshotGallery />
         <Features />
         <DownloadSection />
       </main>
-      <Footer />
+      <Footer homePage />
     </div>
   );
 }
