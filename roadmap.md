@@ -1,6 +1,5 @@
-- [x] Keep the latest APK download pointed directly to the user's real Google Drive file.
-- [x] Add a Services page using the existing SO PLAYER feature descriptions.
-- [x] Add a transparent Privacy Policy page based on the user's data-collection answer; do not invent a contact email.
-- [x] Add Services and Privacy Policy navigation links, including working home-section links from inner pages.
-- [x] Make screenshot and feature titles glow in the brand color, including the selected screenshot state.
-- [ ] Run the route/version tests and inspect the latest build result (blocked: command access is disabled in this session).
+- [x] Verify SO PLAYER in Google Search Console with the user's meta tag and add the exact verified property.
+- [x] Add a public sitemap and sitemap reference while preserving the existing crawler rules.
+- [ ] Show the user's support email on the Privacy Policy and add the requested message form only if delivery can be completed.
+- [ ] Add Google sign-in after asking whether user profile data is needed.
+- [ ] Check latest build and test signals, then close the roadmap.

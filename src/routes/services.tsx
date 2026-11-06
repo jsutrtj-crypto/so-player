@@ -5,6 +5,7 @@ import { features } from "@/data/features";
 import { siteConfig } from "@/data/site";
 
 export const Route = createFileRoute("/services")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "SO PLAYER Services — Movies, Music & Shorts" },

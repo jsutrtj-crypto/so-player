@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "SO PLAYER — Your Entertainment, One Player" },
