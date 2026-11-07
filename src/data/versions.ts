@@ -17,6 +17,7 @@ export interface AppVersion {
   version: string;
   releaseDate: string;
   fileSize: string;
+  fileSizeBytes?: number;
   downloadUrl: string | null;
   releaseNotes?: string;
   isLatest?: boolean;
@@ -24,48 +25,20 @@ export interface AppVersion {
 
 export const appVersions: AppVersion[] = [
   {
-    version: "1.0.0",
-    releaseDate: "Jun 20, 2025",
-    fileSize: "78.3 MB",
-    downloadUrl: "https://drive.google.com/uc?id=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0&export=download",
+    version: "Not supplied",
+    releaseDate: "Not supplied",
+    fileSize: "78.4 MB",
+    fileSizeBytes: 82179058,
+    downloadUrl: "https://drive.google.com/uc?id=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W&export=download",
     isLatest: true,
-    releaseNotes:
-      "First official release. Movies, shows, music, shorts, subscriptions and personal library — all in one player.",
   },
   {
-    version: "0.9.8",
-    releaseDate: "May 10, 2025",
-    fileSize: "22 MB",
-    downloadUrl: null,
-    releaseNotes: "Performance improvements and bug fixes in the shorts feed.",
-  },
-  {
-    version: "0.9.7",
-    releaseDate: "Apr 02, 2025",
-    fileSize: "21 MB",
-    downloadUrl: null,
-    releaseNotes: "Improved music charts and playback stability.",
-  },
-  {
-    version: "0.9.5",
-    releaseDate: "Feb 18, 2025",
-    fileSize: "20 MB",
-    downloadUrl: null,
-    releaseNotes: "Added subscriptions feed and channel follow feature.",
-  },
-  {
-    version: "0.9.0",
-    releaseDate: "Jan 05, 2025",
-    fileSize: "19 MB",
-    downloadUrl: null,
-    releaseNotes: "New library layout with history and downloads.",
-  },
-  {
-    version: "0.8.5",
-    releaseDate: "Dec 12, 2024",
-    fileSize: "18 MB",
-    downloadUrl: null,
-    releaseNotes: "Early preview build with movies, shows and music.",
+    version: "Not supplied",
+    releaseDate: "Not supplied",
+    fileSize: "78.3 MB",
+    fileSizeBytes: 82125802,
+    downloadUrl: "https://drive.google.com/uc?id=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0&export=download",
+    isLatest: false,
   },
 ];
 

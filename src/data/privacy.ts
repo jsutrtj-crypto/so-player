@@ -1,7 +1,7 @@
 export const privacyPolicy = {
   lastUpdated: "November 6, 2026",
   websiteCollectsPersonalInformation: false,
-  contactEmail: null as string | null,
+  contactEmail: "sksiam827@gmail.com" as string | null,
   sections: [
     {
       title: "Information on this website",

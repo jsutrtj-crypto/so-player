@@ -1,5 +1,6 @@
 - [x] Verify SO PLAYER in Google Search Console with the user's meta tag and add the exact verified property.
 - [x] Add a public sitemap and sitemap reference while preserving the existing crawler rules.
+- [ ] Make the newly supplied real APK the main download, keep only the previous real APK in older versions, and remove demo releases.
 - [ ] Show the user's support email on the Privacy Policy and add the requested message form only if delivery can be completed.
 - [ ] Add Google sign-in after asking whether user profile data is needed.
 - [ ] Check latest build and test signals, then close the roadmap.
