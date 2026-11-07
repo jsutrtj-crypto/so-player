@@ -25,7 +25,7 @@ export interface AppVersion {
 
 export const appVersions: AppVersion[] = [
   {
-    version: "Not supplied",
+    version: "3.0.1",
     releaseDate: "Not supplied",
     fileSize: "78.4 MB",
     fileSizeBytes: 82179058,
