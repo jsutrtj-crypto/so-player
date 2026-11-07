@@ -7,12 +7,12 @@ describe("SO PLAYER version data", () => {
   it("marks exactly one version as latest and puts it first", () => {
     expect(appVersions[0]?.isLatest).toBe(true);
     expect(appVersions.filter((v) => v.isLatest)).toHaveLength(1);
-    expect(latestVersion.version).toBe("1.0.0");
+    expect(latestVersion).toBe(appVersions[0]);
   });
 
   it("every version has a number, release date and file size", () => {
     for (const v of appVersions) {
-      expect(v.version).toMatch(/^\d+\.\d+\.\d+$/);
+      expect(v.version === "Not supplied" || /^\d+\.\d+\.\d+$/.test(v.version)).toBe(true);
       expect(v.releaseDate.length).toBeGreaterThan(3);
       expect(v.fileSize).toMatch(/\d+(?:\.\d+)? MB$/);
     }
@@ -27,11 +27,22 @@ describe("SO PLAYER version data", () => {
     }
   });
 
-  it("uses the supplied ShoPlayer APK and its actual Drive file size", () => {
+  it("uses the newly supplied APK as the main download", () => {
     expect(latestVersion.downloadUrl).toBe(
+      "https://drive.google.com/uc?id=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W&export=download",
+    );
+    expect(latestVersion.fileSizeBytes).toBe(82179058);
+    expect(latestVersion.fileSize).toBe("78.4 MB");
+  });
+
+  it("keeps only the previous real APK in older versions and removes demo releases", () => {
+    expect(appVersions).toHaveLength(2);
+    expect(olderVersions).toHaveLength(1);
+    expect(olderVersions[0]?.downloadUrl).toBe(
       "https://drive.google.com/uc?id=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0&export=download",
     );
-    expect(latestVersion.fileSize).toBe("78.3 MB");
+    expect(olderVersions[0]?.fileSizeBytes).toBe(82125802);
+    expect(olderVersions[0]?.fileSize).toBe("78.3 MB");
   });
 });
 

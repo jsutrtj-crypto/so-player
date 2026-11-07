@@ -135,7 +135,7 @@ export function DownloadSection() {
                   </thead>
                   <tbody>
                     {olderVersions.map((v) => (
-                      <tr key={v.version} className="border-b last:border-b-0 transition hover:bg-muted/40">
+                      <tr key={v.downloadUrl ?? v.version} className="border-b last:border-b-0 transition hover:bg-muted/40">
                         <td className="px-5 py-3.5 font-bold">Version {v.version}</td>
                         <td className="px-5 py-3.5 text-muted-foreground">{v.releaseDate}</td>
                         <td className="px-5 py-3.5 text-muted-foreground">{v.fileSize}</td>
@@ -172,7 +172,7 @@ export function DownloadSection() {
                   <div className="space-y-3">
                     {olderVersions.map((v) => (
                       <div
-                        key={v.version}
+                        key={v.downloadUrl ?? v.version}
                         className="flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3"
                       >
                         <div className="min-w-0">
