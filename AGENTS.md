@@ -15,3 +15,4 @@
 - `downloadUrl` must stay `null` until the user supplies a real APK link; the download button shows an honest "coming soon" notice instead of a fake link. Site config (nav, tagline, social URLs) lives in `src/data/site.ts`, and empty social URLs are never rendered as links.
 - Real SO PLAYER screenshots live in `src/assets/screen-*.jpg` (copied from the user's uploads, unaltered); the old generated `screen-*.png` stand-ins are unused. New screenshots replace the JPGs keeping the same file names.
 - Keep shared feature descriptions in `src/data/features.ts`; provide Services and Privacy Policy as separate content routes so each can have its own metadata.
+- Google sign-in uses the generated managed OAuth helper and Cloud Auth only, without a separate profiles table; keep browsing and APK downloads public.

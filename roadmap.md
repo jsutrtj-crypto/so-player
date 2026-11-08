@@ -1,6 +1,8 @@
 - [x] Verify SO PLAYER in Google Search Console with the user's meta tag and add the exact verified property.
-- [x] Add a public sitemap and sitemap reference while preserving the existing crawler rules.
-- [ ] Make the newly supplied real APK the main download, keep only the previous real APK in older versions, and remove demo releases.
-- [ ] Show the user's support email on the Privacy Policy and add the requested message form only if delivery can be completed.
-- [ ] Add Google sign-in after asking whether user profile data is needed.
-- [ ] Check latest build and test signals, then close the roadmap.
+- [x] Add a public sitemap and sitemap reference while preserving crawler rules; verified public XML and submitted to Google with zero errors/warnings.
+- [x] Make the new 3.0.1 APK the main download, keep only the previous real APK in older versions, and remove demo releases.
+- [x] Show support email on Privacy Policy and footer; hide published Edit with Lovable badge.
+- [ ] Automatic feedback delivery and form: blocked until the owner supplies and verifies an email sender domain.
+- [x] Add optional Google sign-in without a separate user profile; enable provider and update privacy disclosure.
+- [ ] Verify complete Google sign-in: requires an actual successful Google session; do not claim end-to-end completion without it.
+- [x] Run targeted tests (11 passed) and check desktop/mobile downloads; no page errors. Build log unavailable. APK navigation verified, but full file download and public sharing could not be confirmed through current Drive permissions.

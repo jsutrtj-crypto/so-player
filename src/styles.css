@@ -62,6 +62,9 @@
   --border: oklch(0.922 0.006 85);
   --input: oklch(0.922 0.006 85);
   --ring: oklch(0.61 0.238 28.5);
+  --google-background: #ffffff;
+  --google-border: #747775;
+  --google-foreground: #1f1f1f;
 }
 
 .dark {
@@ -84,7 +87,22 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.645 0.24 28.5);
+  --google-background: #131314;
+  --google-border: #8e918f;
+  --google-foreground: #e3e3e3;
 }
+
+.google-sign-in, .google-sign-in:hover {
+  background: var(--google-background);
+  border: 1px solid var(--google-border);
+  color: var(--google-foreground);
+  padding-inline: 12px;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+.google-sign-in svg { width: 18px; height: 18px; }
 
 @layer base {
   * {
