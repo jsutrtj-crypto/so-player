@@ -5,4 +5,4 @@
 - [ ] Automatic feedback delivery and form: blocked until the owner supplies and verifies an email sender domain.
 - [x] Add optional Google sign-in without a separate user profile; enable provider and update privacy disclosure.
 - [ ] Verify complete Google sign-in: requires an actual successful Google session; do not claim end-to-end completion without it.
-- [ ] Check latest build and test signals, then close the roadmap.
+- [x] Run targeted tests (11 passed) and check desktop/mobile downloads; no page errors. Build log unavailable. APK navigation verified, but full file download and public sharing could not be confirmed through current Drive permissions.
