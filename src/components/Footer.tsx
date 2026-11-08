@@ -1,7 +1,9 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Mail, Twitter, Youtube } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { FullLogo } from "@/components/Logo";
 import { legalLinks, navItems, siteConfig, socialLinks } from "@/data/site";
+import { privacyPolicy } from "@/data/privacy";
+import { GoogleSignIn } from "@/components/GoogleSignIn";
 
 const socialIcons = {
   youtube: Youtube,
@@ -24,6 +26,10 @@ export function Footer() {
           <div>
             <FullLogo iconSize={42} textClassName="text-xl" />
             <p className="mt-3 text-sm text-muted-foreground">{siteConfig.tagline}</p>
+            <GoogleSignIn />
+            <a href={`mailto:${privacyPolicy.contactEmail}`} className="mt-4 flex items-center gap-2 break-all text-sm font-medium text-primary">
+              <Mail className="size-4 shrink-0" aria-hidden="true" />{privacyPolicy.contactEmail}
+            </a>
           </div>
 
           {/* Navigation */}

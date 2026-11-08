@@ -28,6 +28,7 @@ describe("SO PLAYER version data", () => {
   });
 
   it("uses the newly supplied APK as the main download", () => {
+    expect(latestVersion.version).toBe("3.0.1");
     expect(latestVersion.downloadUrl).toBe(
       "https://drive.google.com/uc?id=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W&export=download",
     );
@@ -72,7 +73,7 @@ describe("SO PLAYER site data", () => {
 });
 
 describe("SO PLAYER privacy statement", () => {
-  it("matches the owner's statement that no personal information is collected", () => {
-    expect(privacyPolicy.websiteCollectsPersonalInformation).toBe(false);
+  it("discloses personal information for optional website Google sign-in", () => {
+    expect(privacyPolicy.websiteCollectsPersonalInformation).toBe(true);
   });
 });
