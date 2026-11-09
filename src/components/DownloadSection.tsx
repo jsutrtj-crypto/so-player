@@ -1,21 +1,9 @@
 import { useState } from "react";
-import { Calendar, ChevronDown, Download, HardDrive, Info, ShieldCheck, Sparkles, Zap } from "lucide-react";
-import { toast } from "sonner";
+import { Calendar, ChevronDown, HardDrive, Info, ShieldCheck, Sparkles, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LogoIcon } from "@/components/Logo";
 import { latestVersion, olderVersions, type AppVersion } from "@/data/versions";
-
-/** Honesty rule: no fake APK links — an empty URL shows a notice, never a download. */
-function handleDownload(version: AppVersion) {
-  if (version.downloadUrl) {
-    window.location.href = version.downloadUrl;
-    return;
-  }
-  toast.info(`SO PLAYER v${version.version}`, {
-    description:
-      "The APK download link will be added here as soon as the file is provided.",
-  });
-}
+import { ApkDownloadButton } from "@/components/ApkDownloadButton";
 
 function DownloadButton({
   version,
@@ -26,20 +14,7 @@ function DownloadButton({
   size?: "lg" | "sm";
   className?: string;
 }) {
-  return (
-    <button
-      type="button"
-      onClick={() => handleDownload(version)}
-      className={cn(
-        "btn-glow inline-flex items-center justify-center gap-2 rounded-2xl font-bold text-primary-foreground transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-        size === "lg" ? "w-full px-6 py-3.5 text-base" : "px-3.5 py-2 text-xs sm:text-sm",
-        className,
-      )}
-    >
-      <Download className={size === "lg" ? "size-5" : "size-4"} strokeWidth={2.5} />
-      Download APK
-    </button>
-  );
+  return <ApkDownloadButton version={version} className={cn(size === "lg" ? "w-full py-3.5 text-base" : "px-3.5 text-xs sm:text-sm", className)} />;
 }
 
 export function DownloadSection() {
@@ -173,7 +148,7 @@ export function DownloadSection() {
                     {olderVersions.map((v) => (
                       <div
                         key={v.downloadUrl ?? v.version}
-                        className="flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3"
+                        className="grid gap-3 rounded-xl border bg-card px-4 py-4 sm:flex sm:items-center sm:justify-between"
                       >
                         <div className="min-w-0">
                           <div className="text-sm font-bold">Version {v.version}</div>
@@ -181,7 +156,7 @@ export function DownloadSection() {
                             {v.releaseDate} • {v.fileSize}
                           </div>
                         </div>
-                        <DownloadButton version={v} size="sm" className="shrink-0" />
+                        <DownloadButton version={v} size="sm" className="w-full sm:w-auto" />
                       </div>
                     ))}
                   </div>

@@ -1,9 +1,10 @@
-import { Download, Play, ShieldCheck, Zap, MonitorSmartphone } from "lucide-react";
+import { Play, ShieldCheck, Zap, MonitorSmartphone } from "lucide-react";
 import { PhoneMockup } from "@/components/PhoneMockup";
 import screenHome from "@/assets/screen-home.jpg";
 import screenShorts from "@/assets/screen-shorts.jpg";
 import screenMusic from "@/assets/screen-music.jpg";
 import { siteConfig } from "@/data/site";
+import { ApkDownloadButton } from "@/components/ApkDownloadButton";
 
 const benefits = [
   { icon: ShieldCheck, label: "100% Safe\nAndroid APK" },
@@ -33,13 +34,7 @@ export function Hero() {
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#download"
-              className="btn-glow inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-base font-bold text-primary-foreground transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-            >
-              <Download className="size-5" strokeWidth={2.5} />
-              Download APK
-            </a>
+            <ApkDownloadButton className="px-7 py-3.5 text-base" />
             <a
               href="#features"
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-primary bg-background px-7 py-3.5 text-base font-bold text-primary transition hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"

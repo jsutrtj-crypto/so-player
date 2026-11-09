@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Download, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FullLogo } from "@/components/Logo";
 import { navItems } from "@/data/site";
+import { ApkDownloadButton } from "@/components/ApkDownloadButton";
 
 const SECTION_IDS = navItems.map((item) => item.href.slice(1));
 
@@ -72,14 +73,7 @@ export function Header({
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            to="/"
-            hash="download"
-            className="btn-glow hidden items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-primary-foreground transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:inline-flex"
-          >
-            <Download className="size-4" strokeWidth={2.5} />
-            Download APK
-          </Link>
+          <ApkDownloadButton className="hidden sm:inline-flex" />
 
           {/* Mobile hamburger */}
           <button
@@ -129,15 +123,7 @@ export function Header({
           >
             Services
           </Link>
-          <Link
-            to="/"
-            hash="download"
-            onClick={() => setOpen(false)}
-            className="btn-glow mt-2 flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-primary-foreground transition hover:brightness-105"
-          >
-            <Download className="size-4" strokeWidth={2.5} />
-            Download APK
-          </Link>
+          <ApkDownloadButton className="mt-2 w-full" onClick={() => setOpen(false)} />
         </nav>
       </div>
     </header>

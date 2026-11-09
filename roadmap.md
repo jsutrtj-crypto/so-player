@@ -1,4 +1,5 @@
 - [x] Verify SO PLAYER in Google Search Console with the user's meta tag and add the exact verified property.
+- [ ] Stream real APK downloads through the website without a Drive page; verify complete files and polish download presentation.
 - [x] Add a public sitemap and sitemap reference while preserving crawler rules; verified public XML and submitted to Google with zero errors/warnings.
 - [x] Make the new 3.0.1 APK the main download, keep only the previous real APK in older versions, and remove demo releases.
 - [x] Show support email on Privacy Policy and footer; hide published Edit with Lovable badge.
