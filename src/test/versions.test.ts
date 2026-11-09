@@ -1,9 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { appVersions, latestVersion, olderVersions } from "@/data/versions";
+import { appVersions, latestVersion, olderVersions, getApkDownloadUrl } from "@/data/versions";
 import { privacyPolicy } from "@/data/privacy";
 import { navItems, siteConfig, socialLinks } from "@/data/site";
 
 describe("SO PLAYER version data", () => {
+  it("delivers supplied APKs through the website without a Drive redirect", () => {
+    expect(getApkDownloadUrl(latestVersion)).toBe("/api/public/apk?file=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W");
+    expect(olderVersions[0] && getApkDownloadUrl(olderVersions[0])).toBe("/api/public/apk?file=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0");
+    expect(getApkDownloadUrl({ ...latestVersion, downloadUrl: null })).toBeNull();
+  });
   it("marks exactly one version as latest and puts it first", () => {
     expect(appVersions[0]?.isLatest).toBe(true);
     expect(appVersions.filter((v) => v.isLatest)).toHaveLength(1);

@@ -9,7 +9,7 @@ export const privacyPolicy = {
     },
     {
       title: "Downloading the APK",
-      body: "The Download APK button opens the real SO PLAYER APK hosted in Google Drive. Google may process information needed to provide that download under Google's own privacy terms.",
+      body: "The Download APK button requests the real SO PLAYER APK through this website. The website retrieves the file from Google Drive without opening a separate Drive page. Our hosting service and Google may process technical information needed to deliver the file. Installation is controlled by Android and requires your approval.",
     },
     {
       title: "Support and account requests",
@@ -17,7 +17,7 @@ export const privacyPolicy = {
     },
     {
       title: "Your choices",
-      body: "You can browse this website without submitting personal information. You can also choose not to use the external Google Drive download or any optional sign-in service.",
+      body: "You can browse this website without submitting personal information. Downloading and installing the APK and signing in with Google are optional.",
     },
   ],
 } as const;

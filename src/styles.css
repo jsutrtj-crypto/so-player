@@ -256,6 +256,10 @@
   content: "";
   position: absolute;
   inset: -2.5px;
+  padding: 2.5px;
+  pointer-events: none;
+  mask: linear-gradient(var(--color-card) 0 0) content-box, linear-gradient(var(--color-card) 0 0);
+  mask-composite: exclude;
   border-radius: inherit;
   z-index: -1;
   background: conic-gradient(
@@ -263,7 +267,7 @@
     var(--color-primary) 0deg,
     color-mix(in oklab, var(--color-primary) 55%, transparent) 60deg,
     transparent 110deg 160deg,
-    color-mix(in oklab, #ff8a92 95%, transparent) 205deg,
+    color-mix(in oklab, var(--color-primary) 45%, var(--color-card)) 205deg,
     color-mix(in oklab, var(--color-primary) 45%, transparent) 245deg,
     transparent 295deg
   );

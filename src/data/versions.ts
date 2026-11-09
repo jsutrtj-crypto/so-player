@@ -58,3 +58,17 @@ export const olderVersions: AppVersion[] = appVersions.filter(
 
 /** Placeholder until real APK links are supplied — never a fake link. */
 export const DOWNLOAD_URL_PLACEHOLDER = null;
+
+/** Extract only the owner-supplied Drive source, keeping release data here. */
+export function getDriveFileId(version: AppVersion): string | null {
+  if (!version.downloadUrl) return null;
+  try {
+    const url = new URL(version.downloadUrl);
+    return url.hostname === "drive.google.com" ? url.searchParams.get("id") : null;
+  } catch { return null; }
+}
+
+export function getApkDownloadUrl(version: AppVersion): string | null {
+  const id = getDriveFileId(version);
+  return id ? `/api/public/apk?file=${encodeURIComponent(id)}` : null;
+}
