@@ -16,3 +16,4 @@
 - Real SO PLAYER screenshots live in `src/assets/screen-*.jpg` (copied from the user's uploads, unaltered); the old generated `screen-*.png` stand-ins are unused. New screenshots replace the JPGs keeping the same file names.
 - Keep shared feature descriptions in `src/data/features.ts`; provide Services and Privacy Policy as separate content routes so each can have its own metadata.
 - Google sign-in uses the generated managed OAuth helper and Cloud Auth only, without a separate profiles table; keep browsing and APK downloads public.
+- All APK buttons use the shared download control and public streaming endpoint; only files allowlisted in version data may be fetched through the server-side Drive connector, so visitors never receive credentials or a Drive interstitial.
