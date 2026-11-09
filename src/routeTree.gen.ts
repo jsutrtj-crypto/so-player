@@ -14,6 +14,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ApiDevCopyUploadsRouteImport } from './routes/api/dev-copy-uploads'
+import { Route as ApiPublicApkRouteImport } from './routes/api/public/apk'
 import { Route as ApiPublicDevCopyUploadsRouteImport } from './routes/api/public/dev-copy-uploads'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,11 @@ const ApiDevCopyUploadsRoute = ApiDevCopyUploadsRouteImport.update({
   path: '/api/dev-copy-uploads',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicApkRoute = ApiPublicApkRouteImport.update({
+  id: '/api/public/apk',
+  path: '/api/public/apk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicDevCopyUploadsRoute = ApiPublicDevCopyUploadsRouteImport.update({
   id: '/api/public/dev-copy-uploads',
   path: '/api/public/dev-copy-uploads',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
+  '/api/public/apk': typeof ApiPublicApkRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
+  '/api/public/apk': typeof ApiPublicApkRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
 export interface FileRoutesById {
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
+  '/api/public/apk': typeof ApiPublicApkRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
 }
 export interface FileRouteTypes {
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/api/dev-copy-uploads'
+    | '/api/public/apk'
     | '/api/public/dev-copy-uploads'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/api/dev-copy-uploads'
+    | '/api/public/apk'
     | '/api/public/dev-copy-uploads'
   id:
     | '__root__'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/api/dev-copy-uploads'
+    | '/api/public/apk'
     | '/api/public/dev-copy-uploads'
   fileRoutesById: FileRoutesById
 }
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiDevCopyUploadsRoute: typeof ApiDevCopyUploadsRoute
+  ApiPublicApkRoute: typeof ApiPublicApkRoute
   ApiPublicDevCopyUploadsRoute: typeof ApiPublicDevCopyUploadsRoute
 }
 
@@ -145,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiDevCopyUploadsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/apk': {
+      id: '/api/public/apk'
+      path: '/api/public/apk'
+      fullPath: '/api/public/apk'
+      preLoaderRoute: typeof ApiPublicApkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/dev-copy-uploads': {
       id: '/api/public/dev-copy-uploads'
       path: '/api/public/dev-copy-uploads'
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiDevCopyUploadsRoute: ApiDevCopyUploadsRoute,
+  ApiPublicApkRoute: ApiPublicApkRoute,
   ApiPublicDevCopyUploadsRoute: ApiPublicDevCopyUploadsRoute,
 }
 export const routeTree = rootRouteImport
