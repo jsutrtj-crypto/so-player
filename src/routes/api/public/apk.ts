@@ -20,7 +20,7 @@ export const Route = createFileRoute("/api/public/apk")({
         const chunkSize = 2 * 1024 * 1024;
         const abort = new AbortController();
         request.signal.addEventListener("abort", () => abort.abort(), { once: true });
-        async function readChunk(start: number) {
+        const readChunk = async (start: number) => {
           const end = Math.min(start + chunkSize - 1, total - 1);
           const upstream = await fetch(`https://connector-gateway.lovable.dev/google_drive/drive/v3/files/${input.data}?alt=media`, {
             headers: { Authorization: `Bearer ${key}`, "X-Connection-Api-Key": driveKey ?? "", Range: `bytes=${start}-${end}` },
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/api/public/apk")({
           const bytes = new Uint8Array(await upstream.arrayBuffer());
           if (bytes.byteLength !== end - start + 1) throw new Error("APK file range was incomplete.");
           return bytes;
-        }
+        };
         const first = await readChunk(0);
         if (first[0] !== 80 || first[1] !== 75 || first[2] !== 3 || first[3] !== 4) throw new Error("APK provider returned an invalid APK archive.");
         let offset = first.byteLength;
