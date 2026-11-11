@@ -17,7 +17,7 @@ export const Route = createFileRoute("/api/public/apk")({
         const total = version.fileSizeBytes;
         if (!total || total <= 0) return new Response("APK size has not been verified.", { status: 503 });
         // Bounded ranges avoid holding an entire large APK in gateway memory.
-        const chunkSize = 2 * 1024 * 1024;
+        const chunkSize = 4 * 1024 * 1024;
         const abort = new AbortController();
         request.signal.addEventListener("abort", () => abort.abort(), { once: true });
         const readChunk = async (start: number) => {

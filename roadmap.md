@@ -1,9 +1,10 @@
 - [x] Verify SO PLAYER in Google Search Console with the user's meta tag and add the exact verified property.
-- [ ] Stream real APK downloads through the website without a Drive page; verify complete files and polish download presentation.
+- [x] Stream APK through the website without a Drive page; browser click starts SO-PLAYER-3.0.1.apk download. Preserve source links and polish download presentation.
+- [ ] Complete-file integrity checks for both APKs: exact byte counts/checksums must pass before claiming complete transfer verification.
 - [x] Add a public sitemap and sitemap reference while preserving crawler rules; verified public XML and submitted to Google with zero errors/warnings.
 - [x] Make the new 3.0.1 APK the main download, keep only the previous real APK in older versions, and remove demo releases.
 - [x] Show support email on Privacy Policy and footer; hide published Edit with Lovable badge.
 - [ ] Automatic feedback delivery and form: blocked until the owner supplies and verifies an email sender domain.
 - [x] Add optional Google sign-in without a separate user profile; enable provider and update privacy disclosure.
 - [ ] Verify complete Google sign-in: requires an actual successful Google session; do not claim end-to-end completion without it.
-- [x] Run targeted tests (11 passed) and check desktop/mobile downloads; no page errors. Build log unavailable. APK navigation verified, but full file download and public sharing could not be confirmed through current Drive permissions.
+- [x] Run targeted tests (12 passed) and inspect desktop/mobile download section; latest build OK. Full APK transfer verification is still in progress until exact file checks are returned.
