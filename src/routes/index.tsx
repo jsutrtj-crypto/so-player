@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { ScreenshotGallery } from "@/components/ScreenshotGallery";
 import { Features } from "@/components/Features";
 import { DownloadSection } from "@/components/DownloadSection";
+import { InstallGuide } from "@/components/InstallGuide";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
 
@@ -42,6 +43,7 @@ function HomePage() {
         <ScreenshotGallery />
         <Features />
         <DownloadSection />
+        <InstallGuide />
       </main>
       <Footer />
     </div>

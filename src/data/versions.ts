@@ -25,12 +25,20 @@ export interface AppVersion {
 
 export const appVersions: AppVersion[] = [
   {
+    version: "3.0.7",
+    releaseDate: "12 November 2026",
+    fileSize: "72.9 MB",
+    fileSizeBytes: 72930972,
+    downloadUrl: "https://drive.google.com/uc?id=1b-OLYXVnYcRWFfqMnPLZLOqiCpSBHl_s&export=download",
+    isLatest: true,
+  },
+  {
     version: "3.0.1",
-    releaseDate: "Not supplied",
+    releaseDate: "2 November 2026",
     fileSize: "78.4 MB",
     fileSizeBytes: 82179058,
     downloadUrl: "https://drive.google.com/uc?id=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W&export=download",
-    isLatest: true,
+    isLatest: false,
   },
   {
     version: "Not supplied",

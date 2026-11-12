@@ -39,22 +39,21 @@ export const Route = createFileRoute("/api/public/apk")({
           if (bytes.byteLength !== end - start + 1) throw new Error("APK file range was incomplete.");
           return bytes;
         };
-        const first = await readChunk(0);
-        if (first[0] !== 80 || first[1] !== 75 || first[2] !== 3 || first[3] !== 4) throw new Error("APK provider returned an invalid APK archive.");
-        let offset = first.byteLength;
+        // Respond immediately so the browser's download starts on tap.
+        let offset = 0;
         const stream = new ReadableStream<Uint8Array>({
-          start(controller) { controller.enqueue(first); },
           async pull(controller) {
             if (offset >= total) { controller.close(); return; }
             try {
               const chunk = await readChunk(offset);
+              if (offset === 0 && (chunk[0] !== 80 || chunk[1] !== 75 || chunk[2] !== 3 || chunk[3] !== 4)) throw new Error("APK provider returned an invalid APK archive.");
               offset += chunk.byteLength;
               controller.enqueue(chunk);
             } catch (error) { controller.error(error); abort.abort(); }
           },
           cancel() { abort.abort(); },
         });
-        const filename = version.isLatest ? `SO-PLAYER-${version.version}.apk` : "SO-PLAYER-previous.apk";
+        const filename = /^\d/.test(version.version) ? `SO-PLAYER-${version.version}.apk` : "SO-PLAYER-previous.apk";
         const headers = new Headers({ "Content-Type": "application/vnd.android.package-archive", "Content-Disposition": `attachment; filename="${filename}"`, "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" });
         headers.set("Content-Length", String(total));
         return new Response(stream, { headers });

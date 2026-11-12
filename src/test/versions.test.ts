@@ -5,8 +5,8 @@ import { navItems, siteConfig, socialLinks } from "@/data/site";
 
 describe("SO PLAYER version data", () => {
   it("delivers supplied APKs through the website without a Drive redirect", () => {
-    expect(getApkDownloadUrl(latestVersion)).toBe("/api/public/apk?file=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W");
-    expect(olderVersions[0] && getApkDownloadUrl(olderVersions[0])).toBe("/api/public/apk?file=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0");
+    expect(getApkDownloadUrl(latestVersion)).toBe("/api/public/apk?file=1b-OLYXVnYcRWFfqMnPLZLOqiCpSBHl_s");
+    expect(olderVersions.map(getApkDownloadUrl)).toEqual(["/api/public/apk?file=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W", "/api/public/apk?file=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0"]);
     expect(getApkDownloadUrl({ ...latestVersion, downloadUrl: null })).toBeNull();
   });
   it("marks exactly one version as latest and puts it first", () => {
@@ -32,23 +32,14 @@ describe("SO PLAYER version data", () => {
     }
   });
 
-  it("uses the newly supplied APK as the main download", () => {
-    expect(latestVersion.version).toBe("3.0.1");
-    expect(latestVersion.downloadUrl).toBe(
-      "https://drive.google.com/uc?id=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W&export=download",
-    );
-    expect(latestVersion.fileSizeBytes).toBe(82179058);
-    expect(latestVersion.fileSize).toBe("78.4 MB");
+  it("uses 3.0.7 as the main download", () => {
+    expect(latestVersion.version).toBe("3.0.7");
+    expect(latestVersion.fileSizeBytes).toBe(72930972);
   });
 
-  it("keeps only the previous real APK in older versions and removes demo releases", () => {
-    expect(appVersions).toHaveLength(2);
-    expect(olderVersions).toHaveLength(1);
-    expect(olderVersions[0]?.downloadUrl).toBe(
-      "https://drive.google.com/uc?id=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0&export=download",
-    );
-    expect(olderVersions[0]?.fileSizeBytes).toBe(82125802);
-    expect(olderVersions[0]?.fileSize).toBe("78.3 MB");
+  it("keeps 3.0.1 and the earlier real APK in older versions", () => {
+    expect(appVersions).toHaveLength(3);
+    expect(olderVersions.map((v) => v.fileSizeBytes)).toEqual([82179058, 82125802]);
   });
 });
 
