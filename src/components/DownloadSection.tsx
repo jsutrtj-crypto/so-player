@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { LogoIcon } from "@/components/Logo";
 import { latestVersion, olderVersions, type AppVersion } from "@/data/versions";
 import { ApkDownloadButton } from "@/components/ApkDownloadButton";
+import { Button } from "@/components/ui/button";
 
 function DownloadButton({
   version,
@@ -34,7 +35,7 @@ export function DownloadSection() {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-10">
           {/* Latest version card */}
-          <div className="glass-card glow-run h-fit rounded-3xl p-6 shadow-sm sm:p-8">
+          <div className="premium-panel glow-run h-fit rounded-2xl p-6 sm:p-8">
             <div className="flex items-center gap-4">
               <LogoIcon iconSize={56} />
               <div className="min-w-0">
@@ -77,7 +78,7 @@ export function DownloadSection() {
             </div>
 
             {/* Trust badges under the download button */}
-            <ul className="mt-5 grid grid-cols-3 gap-2 text-center text-[11px] font-semibold text-muted-foreground sm:text-xs">
+            <ul className="download-badges mt-5 grid grid-cols-3 gap-2 text-center text-[11px] font-semibold text-muted-foreground sm:text-xs">
               <li className="rounded-xl border bg-background/60 px-2 py-2.5">
                 <ShieldCheck className="mx-auto mb-1 size-4 text-primary" />
                 100% Safe APK
@@ -98,7 +99,7 @@ export function DownloadSection() {
             {/* Desktop table */}
             <div className="hidden md:block">
               <h3 className="font-display text-xl font-bold">Older Versions</h3>
-              <div className="mt-4 overflow-hidden rounded-2xl border bg-card shadow-sm">
+              <div className="premium-panel mt-4 overflow-hidden rounded-lg">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b bg-muted/50 text-left text-xs uppercase tracking-wide text-muted-foreground">
@@ -126,17 +127,18 @@ export function DownloadSection() {
 
             {/* Mobile accordion */}
             <div className="md:hidden">
-              <button
+              <Button
+                variant="outline"
                 type="button"
                 onClick={() => setOpen((v) => !v)}
                 aria-expanded={open}
-                className="flex w-full items-center justify-between rounded-2xl border bg-card px-5 py-4 shadow-sm"
+                className="premium-panel flex h-auto w-full items-center justify-between rounded-lg px-5 py-4"
               >
                 <span className="font-display text-lg font-bold">Older Versions</span>
                 <ChevronDown
                   className={cn("size-5 text-primary transition-transform", open && "rotate-180")}
                 />
-              </button>
+              </Button>
               <div
                 className={cn(
                   "grid transition-all duration-300",
@@ -148,7 +150,7 @@ export function DownloadSection() {
                     {olderVersions.map((v) => (
                       <div
                         key={v.downloadUrl ?? v.version}
-                        className="grid gap-3 rounded-xl border bg-card px-4 py-4 sm:flex sm:items-center sm:justify-between"
+                        className="premium-panel grid gap-3 rounded-lg px-4 py-4 sm:flex sm:items-center sm:justify-between"
                       >
                         <div className="min-w-0">
                           <div className="text-sm font-bold">Version {v.version}</div>

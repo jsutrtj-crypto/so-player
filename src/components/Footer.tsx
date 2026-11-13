@@ -14,7 +14,7 @@ const socialIcons = {
 
 export function Footer() {
   return (
-    <footer className="relative border-t bg-background">
+    <footer className="footer-accent relative border-t bg-background">
       {/* Brand gradient accent along the top edge */}
       <div
         aria-hidden="true"

@@ -1,3 +1,4 @@
+- [ ] Polish lower-page buttons and boxes with red inner tint, edge glow and lift; preserve content and downloads, verify mobile and desktop.
 - [x] Polish home/music/video/shorts icons and add an interactive real-screenshot selector; preserve downloads and content, verify mobile and desktop.
 - [x] Verify SO PLAYER in Google Search Console with the user's meta tag and add the exact verified property.
 - [x] Stream APK through the website without a Drive page; browser click starts SO-PLAYER-3.0.1.apk download. Preserve source links and polish download presentation.

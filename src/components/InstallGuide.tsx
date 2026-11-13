@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ZoomIn, ZoomOut } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import step1 from "@/assets/install-step-1.png";
 import step2 from "@/assets/install-step-2.png";
 import step3 from "@/assets/install-step-3.png";
@@ -25,18 +26,19 @@ export function InstallGuide() {
         <p className="mt-3 text-muted-foreground sm:text-lg">ছবিতে ট্যাপ করলে বড় করে দেখা যাবে।</p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((s, i) => (
-            <button
+            <Button
+              variant="ghost"
               key={s.title}
               type="button"
               onClick={() => { setActive(i); setZoom(1); }}
-              className="glass-card group rounded-3xl p-4 text-left shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl focus-visible:-translate-y-2 active:-translate-y-2 focus-visible:outline-2 focus-visible:outline-ring"
+              className="premium-panel group block h-auto min-w-0 whitespace-normal rounded-lg p-4 text-left focus-visible:outline-2 focus-visible:outline-ring"
             >
               <div className="overflow-hidden rounded-2xl bg-muted">
                 <img src={s.src} alt={s.title} loading="lazy" className="aspect-[4/5] w-full object-contain transition duration-300 group-hover:scale-105" />
               </div>
               <h3 className="mt-4 font-display text-lg font-bold">{s.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{s.text}</p>
-            </button>
+            </Button>
           ))}
         </div>
       </div>
@@ -55,8 +57,8 @@ export function InstallGuide() {
             ) : null}
           </div>
           <div className="flex justify-center gap-3">
-            <button type="button" aria-label="ছোট করুন" onClick={() => setZoom((z) => Math.max(1, z - 0.5))} className="rounded-full border p-2"><ZoomOut className="size-5" /></button>
-            <button type="button" aria-label="বড় করুন" onClick={() => setZoom((z) => Math.min(3, z + 0.5))} className="rounded-full border p-2"><ZoomIn className="size-5" /></button>
+            <Button variant="outline" size="icon" type="button" aria-label="ছোট করুন" onClick={() => setZoom((z) => Math.max(1, z - 0.5))}><ZoomOut className="size-5" /></Button>
+            <Button variant="outline" size="icon" type="button" aria-label="বড় করুন" onClick={() => setZoom((z) => Math.min(3, z + 0.5))}><ZoomIn className="size-5" /></Button>
           </div>
         </DialogContent>
       </Dialog>
