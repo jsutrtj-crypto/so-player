@@ -1,3 +1,4 @@
+- [x] Polish home/music/video/shorts icons and add an interactive real-screenshot selector; preserve downloads and content, verify mobile and desktop.
 - [x] Verify SO PLAYER in Google Search Console with the user's meta tag and add the exact verified property.
 - [x] Stream APK through the website without a Drive page; browser click starts SO-PLAYER-3.0.1.apk download. Preserve source links and polish download presentation.
 - [ ] Complete-file integrity checks for both APKs: exact byte counts/checksums must pass before claiming complete transfer verification.

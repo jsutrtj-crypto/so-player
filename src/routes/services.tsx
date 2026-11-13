@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { features } from "@/data/features";
 import { siteConfig } from "@/data/site";
+import { EntertainmentIcon } from "@/components/EntertainmentIcon";
 
 export const Route = createFileRoute("/services")({
   staticData: { sitemap: true },
@@ -41,11 +42,9 @@ function ServicesPage() {
             </p>
 
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map(({ icon: Icon, title, description }) => (
-                <article key={title} className="glow-lift glass-card rounded-2xl p-6 shadow-sm">
-                  <span className="grid size-12 place-items-center rounded-xl bg-secondary">
-                    <Icon className="size-6 text-primary" strokeWidth={2.2} />
-                  </span>
+              {features.map(({ icon: Icon, title, description, tone }) => (
+                <article key={title} className="feature-tile rounded-lg border bg-card p-6">
+                  <EntertainmentIcon icon={Icon} tone={tone} />
                   <h2 className="title-glow mt-5 font-display text-xl font-bold">{title}</h2>
                   <p className="mt-2 leading-relaxed text-muted-foreground">{description}</p>
                 </article>
