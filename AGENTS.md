@@ -11,6 +11,8 @@
 
 ## Project rules
 
+- Installation guide images and bilingual instructions live together in a browser-safe data module; uploaded guide images use CDN pointers to preserve originals without repository binaries.
+
 - Lower-page decorative surfaces share the premium-panel CSS treatment and semantic effect tokens; this keeps red accents consistent without touching download behavior.
 
 - All release/download data (version numbers, dates, sizes, APK URLs, release notes) lives only in `src/data/versions.ts`; the page renders from it and never hardcodes versions.

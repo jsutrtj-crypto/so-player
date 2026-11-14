@@ -1,3 +1,4 @@
+- [x] Add three scan/install screenshots and bilingual numbered details; all six images load, language switching and zoom verified on mobile/desktop; 12 existing tests passed.
 - [x] Polish lower-page buttons and boxes with red inner tint, edge glow and lift; mobile/desktop layout, older-version expansion and image zoom verified, 12 tests passed.
 - [x] Polish home/music/video/shorts icons and add an interactive real-screenshot selector; preserve downloads and content, verify mobile and desktop.
 - [x] Verify SO PLAYER in Google Search Console with the user's meta tag and add the exact verified property.
