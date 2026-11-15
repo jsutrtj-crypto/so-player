@@ -11,6 +11,8 @@
 
 ## Project rules
 
+- Keep search identity and canonical origin in site configuration, and external downloader destinations in one browser-safe data module shared by the page and footer; this prevents conflicting metadata and invented platform URLs.
+
 - Installation guide images and bilingual instructions live together in a browser-safe data module; uploaded guide images use CDN pointers to preserve originals without repository binaries.
 
 - Lower-page decorative surfaces share the premium-panel CSS treatment and semantic effect tokens; this keeps red accents consistent without touching download behavior.

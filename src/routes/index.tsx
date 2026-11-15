@@ -8,29 +8,40 @@ import { DownloadSection } from "@/components/DownloadSection";
 import { InstallGuide } from "@/components/InstallGuide";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
+import { PlatformDownloads } from "@/components/PlatformDownloads";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "SO PLAYER — Your Entertainment, One Player" },
+      { title: siteConfig.searchTitle },
       {
         name: "description",
         content:
-          "SO PLAYER is a powerful and lightweight Android media app for movies, shows, music, shorts and more. Download the latest APK, explore screenshots, features and version history.",
+          siteConfig.searchDescription,
       },
-      { property: "og:title", content: "SO PLAYER — Your Entertainment, One Player" },
+      { property: "og:title", content: siteConfig.searchTitle },
       {
         property: "og:description",
         content:
-          "A powerful and lightweight Android media app for movies, shows, music, shorts and more — all in one place.",
+          siteConfig.searchDescription,
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { property: "og:site_name", content: siteConfig.name },
+      { property: "og:url", content: siteConfig.url },
+      { property: "og:site_name", content: siteConfig.searchName },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: siteConfig.url }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          { "@type": "WebSite", "@id": `${siteConfig.url}/#website`, name: siteConfig.searchName, alternateName: siteConfig.name, url: siteConfig.url, description: siteConfig.searchDescription },
+          { "@type": "SoftwareApplication", name: siteConfig.searchName, alternateName: siteConfig.name, operatingSystem: "Android", applicationCategory: "MultimediaApplication", url: siteConfig.url, description: siteConfig.searchDescription },
+        ],
+      }),
+    }],
   }),
   component: HomePage,
 });
@@ -46,6 +57,7 @@ function HomePage() {
         <Features />
         <DownloadSection />
         <InstallGuide />
+        <PlatformDownloads />
       </main>
       <Footer />
     </div>

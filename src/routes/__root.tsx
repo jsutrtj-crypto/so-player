@@ -80,9 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SO PLAYER — Your Entertainment, One Player" },
-      { name: "description", content: "Official website of SO PLAYER, the all-in-one Android media player." },
-      { property: "og:site_name", content: "SO PLAYER" },
+      { property: "og:site_name", content: "SK SHOW PLAYER" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "google-site-verification", content: "dJS61pRnJTGVQ_T2mcPuLl_RjvaYFgt1TxqjqSb48XU" },

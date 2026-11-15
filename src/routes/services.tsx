@@ -9,19 +9,21 @@ export const Route = createFileRoute("/services")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "SO PLAYER Services — Movies, Music & Shorts" },
+      { title: "SK SHOW PLAYER Services — Video, Music & Shorts" },
       {
         name: "description",
-        content: "Explore SO PLAYER entertainment services for movies, shows, music, shorts, subscriptions and your personal library.",
+        content: "Explore SK SHOW PLAYER (SO PLAYER), the Android video and music platform for movies, shows, shorts, subscriptions and your personal library.",
       },
-      { property: "og:title", content: "SO PLAYER Services — Movies, Music & Shorts" },
+      { property: "og:title", content: "SK SHOW PLAYER Services — Video, Music & Shorts" },
       {
         property: "og:description",
-        content: "One Android player for movies, shows, music, shorts, subscriptions and your personal library.",
+        content: "Explore SK SHOW PLAYER video and music entertainment services on Android.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `${siteConfig.url}/services` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: `${siteConfig.url}/services` }],
   }),
   component: ServicesPage,
 });

@@ -4,6 +4,7 @@ import { FullLogo } from "@/components/Logo";
 import { legalLinks, navItems, siteConfig, socialLinks } from "@/data/site";
 import { privacyPolicy } from "@/data/privacy";
 import { GoogleSignIn } from "@/components/GoogleSignIn";
+import { downloaderSites, platformDownloads } from "@/data/download-links";
 
 const socialIcons = {
   youtube: Youtube,
@@ -51,6 +52,17 @@ export function Footer() {
 
           {/* Socials */}
           <div className="md:justify-self-end">
+            <nav aria-label="Video download links" className="mb-6">
+              <p className="mb-3 text-sm font-bold">Video downloads</p>
+              <ul className="grid gap-2">
+                {platformDownloads.map((platform) => (
+                  <li key={platform.name}><a href={platform.url} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition hover:text-primary">{platform.name} download ↗</a></li>
+                ))}
+                {downloaderSites.map((site) => (
+                  <li key={site.url}><a href={site.url} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition hover:text-primary">{site.label} ↗</a></li>
+                ))}
+              </ul>
+            </nav>
             <ul className="flex gap-3">
               {socialLinks
                 .filter((s) => s.url)

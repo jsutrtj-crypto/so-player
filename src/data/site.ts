@@ -1,5 +1,10 @@
 export const siteConfig = {
   name: "SO PLAYER",
+  searchName: "SK SHOW PLAYER",
+  searchTitle: "SK SHOW PLAYER — Official Android Video & Music Platform",
+  searchDescription:
+    "SK SHOW PLAYER (SO PLAYER) is an Android video and music entertainment platform. Explore app screenshots, installation guides, real APK releases, and VidNexo video download links.",
+  url: "https://so-player.lovable.app",
   tagline: "Your Entertainment, One Player.",
   description:
     "SO PLAYER is a powerful and lightweight Android media app for movies, shows, music, shorts and more. A smooth, modern and personalized entertainment experience — all in one place.",
