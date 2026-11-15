@@ -8,15 +8,15 @@ export const Route = createFileRoute("/privacy-policy")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "Privacy Policy — SK SHOW PLAYER" },
+      { title: `Privacy Policy — ${siteConfig.searchName}` },
       {
         name: "description",
-        content: "Read how the SK SHOW PLAYER (SO PLAYER) video platform website and APK download handle information and external services.",
+        content: `Read how the ${siteConfig.searchName} video platform website and APK download handle information and external services.`,
       },
-      { property: "og:title", content: "Privacy Policy — SK SHOW PLAYER" },
+      { property: "og:title", content: `Privacy Policy — ${siteConfig.searchName}` },
       {
         property: "og:description",
-        content: "Privacy information for the SK SHOW PLAYER website, APK download and external services.",
+        content: `Privacy information for the ${siteConfig.searchName} website, APK download and external services.`,
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${siteConfig.url}/privacy-policy` },
