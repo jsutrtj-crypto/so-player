@@ -9,6 +9,7 @@ import { InstallGuide } from "@/components/InstallGuide";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
 import { PlatformDownloads } from "@/components/PlatformDownloads";
+import { AboutApp, aboutFaq } from "@/components/AboutApp";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -38,7 +39,8 @@ export const Route = createFileRoute("/")({
         "@context": "https://schema.org",
         "@graph": [
           { "@type": "WebSite", "@id": `${siteConfig.url}/#website`, name: siteConfig.searchName, alternateName: siteConfig.name, url: siteConfig.url, description: siteConfig.searchDescription },
-          { "@type": "SoftwareApplication", name: siteConfig.searchName, alternateName: siteConfig.name, operatingSystem: "Android", applicationCategory: "MultimediaApplication", url: siteConfig.url, description: siteConfig.searchDescription },
+          { "@type": "SoftwareApplication", name: siteConfig.searchName, alternateName: siteConfig.name, operatingSystem: "Android", applicationCategory: "MultimediaApplication", url: siteConfig.url, description: siteConfig.searchDescription, featureList: ["Watch YouTube videos", "Music player", "Shorts", "Facebook video download", "Instagram video download", "TikTok video download", "MP3 and HD video formats"], offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
+          { "@type": "FAQPage", mainEntity: aboutFaq.map((f) => ({ "@type": "Question", name: f.q.en, acceptedAnswer: { "@type": "Answer", text: f.a.en } })) },
         ],
       }),
     }],
@@ -58,6 +60,7 @@ function HomePage() {
         <DownloadSection />
         <InstallGuide />
         <PlatformDownloads />
+        <AboutApp />
       </main>
       <Footer />
     </div>

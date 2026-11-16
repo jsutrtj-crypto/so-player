@@ -7,7 +7,7 @@ import { downloadGuideCopy, downloadSteps } from "@/data/download-guide";
 import type { GuideLanguage } from "@/data/install-guide";
 
 export function VideoDownloadGuide() {
-  const [language, setLanguage] = useState<GuideLanguage>("bn");
+  const [language, setLanguage] = useState<GuideLanguage>("en");
   const [active, setActive] = useState<number | null>(null);
   const [zoom, setZoom] = useState(1);
   const step = active === null ? null : downloadSteps[active];
@@ -20,8 +20,8 @@ export function VideoDownloadGuide() {
             {copy.heading} <span className="text-primary">{copy.highlight}</span>
           </h2>
           <div role="group" aria-label="Download guide language" className="flex gap-1 rounded-lg border bg-muted p-1">
-            <Button variant={language === "bn" ? "default" : "ghost"} aria-pressed={language === "bn"} onClick={() => setLanguage("bn")}>বাংলা</Button>
             <Button variant={language === "en" ? "default" : "ghost"} aria-pressed={language === "en"} onClick={() => setLanguage("en")}>English</Button>
+            <Button variant={language === "bn" ? "default" : "ghost"} aria-pressed={language === "bn"} onClick={() => setLanguage("bn")}>বাংলা</Button>
           </div>
         </div>
         <p className="mt-3 max-w-3xl text-muted-foreground sm:text-lg">{copy.intro}</p>

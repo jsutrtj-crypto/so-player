@@ -54,12 +54,12 @@ export function Footer() {
           <div className="md:justify-self-end">
             <nav aria-label="Video download links" className="mb-6">
               <p className="mb-3 text-sm font-bold">Video downloads</p>
-              <ul className="grid gap-2">
+              <ul className="flex max-w-xs flex-wrap gap-2">
                 {platformDownloads.map((platform) => (
-                  <li key={platform.name}><a href={platform.url} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition hover:text-primary">{platform.name} download ↗</a></li>
+                  <li key={platform.name}><a href={platform.url} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full border px-3 py-1 text-xs font-semibold text-muted-foreground transition hover:border-primary hover:text-primary">{platform.name} ↗</a></li>
                 ))}
                 {downloaderSites.map((site) => (
-                  <li key={site.url}><a href={site.url} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition hover:text-primary">{site.label} ↗</a></li>
+                  <li key={site.url}><a href={site.url} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full border px-3 py-1 text-xs font-semibold text-muted-foreground transition hover:border-primary hover:text-primary">{site.label} ↗</a></li>
                 ))}
               </ul>
             </nav>
