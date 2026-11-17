@@ -7,6 +7,7 @@ import { Features } from "@/components/Features";
 import { DownloadSection } from "@/components/DownloadSection";
 import { InstallGuide } from "@/components/InstallGuide";
 import { Footer } from "@/components/Footer";
+import { TrustStrip } from "@/components/TrustStrip";
 import { siteConfig } from "@/data/site";
 import { PlatformDownloads } from "@/components/PlatformDownloads";
 import { AboutApp, aboutFaq } from "@/components/AboutApp";
@@ -54,6 +55,7 @@ function HomePage() {
       <Header homePage />
       <main>
         <Hero />
+        <TrustStrip />
         <ScreenshotGallery />
         <VideoDownloadGuide />
         <Features />
