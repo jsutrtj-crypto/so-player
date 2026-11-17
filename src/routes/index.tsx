@@ -7,6 +7,7 @@ import { Features } from "@/components/Features";
 import { DownloadSection } from "@/components/DownloadSection";
 import { InstallGuide } from "@/components/InstallGuide";
 import { Footer } from "@/components/Footer";
+import { MoreSections } from "@/components/MoreSections";
 import { TrustStrip } from "@/components/TrustStrip";
 import { siteConfig } from "@/data/site";
 import { PlatformDownloads } from "@/components/PlatformDownloads";
@@ -62,6 +63,7 @@ function HomePage() {
         <DownloadSection />
         <InstallGuide />
         <PlatformDownloads />
+        <MoreSections />
         <AboutApp />
       </main>
       <Footer />
