@@ -5,9 +5,9 @@ import { navItems, siteConfig, socialLinks } from "@/data/site";
 
 describe("SO PLAYER version data", () => {
   it("delivers supplied APKs through the website without a Drive redirect", () => {
-    expect(getApkDownloadUrl(latestVersion)).toBe("/api/public/apk?file=1b-OLYXVnYcRWFfqMnPLZLOqiCpSBHl_s");
-    expect(olderVersions.map(getApkDownloadUrl)).toEqual(["/api/public/apk?file=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W", "/api/public/apk?file=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0"]);
-    expect(getApkDownloadUrl({ ...latestVersion, downloadUrl: null })).toBeNull();
+    expect(getApkDownloadUrl(latestVersion)).toBe("/api/public/apk?release=3.0.11");
+    expect(olderVersions.map(getApkDownloadUrl)).toEqual(["/api/public/apk?file=1b-OLYXVnYcRWFfqMnPLZLOqiCpSBHl_s", "/api/public/apk?file=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W", "/api/public/apk?file=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0"]);
+    expect(getApkDownloadUrl({ ...latestVersion, storagePath: undefined, downloadUrl: null })).toBeNull();
   });
   it("marks exactly one version as latest and puts it first", () => {
     expect(appVersions[0]?.isLatest).toBe(true);
@@ -32,14 +32,14 @@ describe("SO PLAYER version data", () => {
     }
   });
 
-  it("uses 3.0.7 as the main download", () => {
-    expect(latestVersion.version).toBe("3.0.7");
-    expect(latestVersion.fileSizeBytes).toBe(72930972);
+  it("uses 3.0.11 as the main download", () => {
+    expect(latestVersion.version).toBe("3.0.11");
+    expect(latestVersion.fileSizeBytes).toBe(220130589);
   });
 
   it("keeps 3.0.1 and the earlier real APK in older versions", () => {
-    expect(appVersions).toHaveLength(3);
-    expect(olderVersions.map((v) => v.fileSizeBytes)).toEqual([82179058, 82125802]);
+    expect(appVersions).toHaveLength(4);
+    expect(olderVersions.map((v) => v.fileSizeBytes)).toEqual([72930972, 82179058, 82125802]);
   });
 });
 

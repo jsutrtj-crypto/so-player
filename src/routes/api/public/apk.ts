@@ -6,6 +6,15 @@ export const Route = createFileRoute("/api/public/apk")({
   staticData: { sitemap: false },
   server: { handlers: {
     GET: async ({ request }) => {
+      const release = new URL(request.url).searchParams.get("release");
+      if (release) {
+        const stored = appVersions.find((v) => v.storagePath && v.version === release);
+        if (!stored?.storagePath) return new Response("APK not found", { status: 404 });
+        const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+        const { data, error } = await supabaseAdmin.storage.from("apk").createSignedUrl(stored.storagePath, 600, { download: `SO-PLAYER-${stored.version}.apk` });
+        if (error || !data) return new Response("APK download could not start. Please try again later.", { status: 502 });
+        return new Response(null, { status: 302, headers: { Location: data.signedUrl, "Cache-Control": "no-store" } });
+      }
       const input = z.string().regex(/^[A-Za-z0-9_-]{10,100}$/).safeParse(new URL(request.url).searchParams.get("file"));
       if (!input.success) return new Response("Invalid APK selection", { status: 400 });
       const version = appVersions.find((v) => getDriveFileId(v) === input.data);

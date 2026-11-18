@@ -24,3 +24,4 @@
 - Use the shared EntertainmentIcon for category and feature artwork; interactive previews must display original app screenshots, not simulate app playback.
 - Google sign-in uses the generated managed OAuth helper and Cloud Auth only, without a separate profiles table; keep browsing and APK downloads public.
 - All APK buttons use the shared download control and public streaming endpoint; only files allowlisted in version data may be fetched through the server-side Drive connector, so visitors never receive credentials or a Drive interstitial.
+- Uploaded APKs live in the private 'apk' storage bucket; the public APK route only signs paths allowlisted in version data, so large files download directly without public buckets.

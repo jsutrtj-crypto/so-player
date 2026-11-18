@@ -3,7 +3,7 @@ export const siteConfig = {
   searchName: "SK SO PLAYER",
   searchTitle: "SK SO PLAYER — Official Android Video & Music Platform",
   searchDescription:
-    "SK SO PLAYER is an Android video and music player app. Watch YouTube videos, play music and shorts, and download videos from Facebook, Instagram, TikTok and YouTube in HD or MP3. Official APK download and install guide.",
+    "SK SO PLAYER is not just a player app — it is an all-in-one Android video platform. Watch every kind of video, download YouTube videos and music, and watch and download videos from Facebook, Instagram, TikTok and more in HD or MP3. Official SO PLAYER APK download.",
   url: "https://so-player.lovable.app",
   tagline: "Your Entertainment, One Player.",
   description:

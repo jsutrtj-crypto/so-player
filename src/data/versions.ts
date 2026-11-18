@@ -19,18 +19,29 @@ export interface AppVersion {
   fileSize: string;
   fileSizeBytes?: number;
   downloadUrl: string | null;
+  /** Path of the APK in the website's own private file storage. */
+  storagePath?: string;
   releaseNotes?: string;
   isLatest?: boolean;
 }
 
 export const appVersions: AppVersion[] = [
   {
+    version: "3.0.11",
+    releaseDate: "18 November 2026",
+    fileSize: "209.9 MB",
+    fileSizeBytes: 220130589,
+    downloadUrl: null,
+    storagePath: "SO-PLAYER-3.0.11.apk",
+    isLatest: true,
+  },
+  {
     version: "3.0.7",
     releaseDate: "12 November 2026",
     fileSize: "72.9 MB",
     fileSizeBytes: 72930972,
     downloadUrl: "https://drive.google.com/uc?id=1b-OLYXVnYcRWFfqMnPLZLOqiCpSBHl_s&export=download",
-    isLatest: true,
+    isLatest: false,
   },
   {
     version: "3.0.1",
@@ -77,6 +88,7 @@ export function getDriveFileId(version: AppVersion): string | null {
 }
 
 export function getApkDownloadUrl(version: AppVersion): string | null {
+  if (version.storagePath) return `/api/public/apk?release=${encodeURIComponent(version.version)}`;
   const id = getDriveFileId(version);
   return id ? `/api/public/apk?file=${encodeURIComponent(id)}` : null;
 }
