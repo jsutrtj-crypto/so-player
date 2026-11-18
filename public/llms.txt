@@ -1,0 +1,16 @@
+# SK SO PLAYER
+
+> SK SO PLAYER (app name: SO PLAYER) is a free all-in-one Android video and music platform. Watch every kind of video, download YouTube videos and music (MP3), and watch and download videos from Facebook, Instagram, TikTok and more in HD. Official APK download site: https://so-player.lovable.app
+
+## Key facts
+- App name: SO PLAYER; website name: SK SO PLAYER
+- Platform: Android (APK)
+- Price: Free
+- Latest version: 3.0.11
+- Features: HD video playback, YouTube video & music download, Facebook/Instagram/TikTok video download, shorts, music player, library, subscriptions, Bangla & English guides
+- Support: sksiam827@gmail.com
+
+## Pages
+- [Home & APK download](https://so-player.lovable.app/)
+- [Services](https://so-player.lovable.app/services)
+- [Privacy Policy](https://so-player.lovable.app/privacy-policy)

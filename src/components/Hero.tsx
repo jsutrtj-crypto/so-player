@@ -1,3 +1,4 @@
+import { WaveText } from "@/components/WaveText";
 import { useState } from "react";
 import { Play, ShieldCheck, Zap, MonitorSmartphone, House, Music2, Clapperboard, SquarePlay } from "lucide-react";
 import { PhoneMockup } from "@/components/PhoneMockup";
@@ -37,7 +38,7 @@ export function Hero() {
           </p>
 
           <h1 className="mt-5 font-display text-[2rem] font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem]">
-            SO <span className="text-primary">PLAYER</span>
+            <WaveText text="SO " /><WaveText text="PLAYER" className="text-primary" />
           </h1>
           <p className="mt-3 text-xl font-semibold sm:text-2xl">{siteConfig.tagline}</p>
 

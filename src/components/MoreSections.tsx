@@ -1,3 +1,4 @@
+import { WaveText } from "@/components/WaveText";
 import { Download, Gauge, Headphones, Languages, Lock, MonitorPlay, Moon, PackageCheck, PlayCircle, Smartphone, Zap } from "lucide-react";
 import { ApkDownloadButton } from "@/components/ApkDownloadButton";
 import { latestVersion } from "@/data/versions";
@@ -61,7 +62,7 @@ export function MoreSections() {
       <section className="py-14 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="premium-panel rounded-3xl p-8 text-center sm:p-12">
-            <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Ready to try {siteConfig.searchName}?</h2>
+            <h2 className="font-display text-3xl font-extrabold sm:text-4xl"><WaveText text={`Ready to try ${siteConfig.searchName}?`} /></h2>
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground">{siteConfig.tagline} Version {latestVersion.version} · {latestVersion.fileSize} · Free for Android.</p>
             <ApkDownloadButton className="mt-7 w-full sm:w-auto" />
           </div>
