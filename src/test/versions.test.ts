@@ -7,7 +7,7 @@ describe("SO PLAYER version data", () => {
   it("delivers supplied APKs through the website without a Drive redirect", () => {
     expect(getApkDownloadUrl(latestVersion)).toBe("/api/public/apk?release=3.0.11");
     expect(olderVersions.map(getApkDownloadUrl)).toEqual(["/api/public/apk?file=1b-OLYXVnYcRWFfqMnPLZLOqiCpSBHl_s", "/api/public/apk?file=1V2kJh1umAwuvD1YmhhwzZl9o0sM8nh9W", "/api/public/apk?file=1ZGQJ3ptgKu_JjO1BRAEbv8IHEEwNWfK0"]);
-    expect(getApkDownloadUrl({ ...latestVersion, storagePath: undefined, downloadUrl: null })).toBeNull();
+    expect(getApkDownloadUrl({ version: "9.9.9", releaseDate: "x", fileSize: "1 MB", downloadUrl: null })).toBeNull();
   });
   it("marks exactly one version as latest and puts it first", () => {
     expect(appVersions[0]?.isLatest).toBe(true);
