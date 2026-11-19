@@ -25,6 +25,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const legalLinks = [
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Privacy Policy", href: "/privacy-policy" },
 ] as const;

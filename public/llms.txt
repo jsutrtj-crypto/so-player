@@ -12,5 +12,6 @@
 
 ## Pages
 - [Home & APK download](https://so-player.lovable.app/)
+- [About](https://so-player.lovable.app/about)
 - [Services](https://so-player.lovable.app/services)
 - [Privacy Policy](https://so-player.lovable.app/privacy-policy)

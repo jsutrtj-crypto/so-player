@@ -480,3 +480,16 @@ h2.font-display .wave-letter, h1 .wave-letter {
   animation: wave-letter 2.4s ease-in-out infinite, wave-color 5s linear infinite;
 }
 @keyframes wave-color { to { background-position: 300% 0; } }
+
+/* Site-wide living background: soft moving red glow + fine grid */
+body::before {
+  content: ""; position: fixed; inset: -20%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40% 35% at 15% 20%, color-mix(in oklab, var(--color-primary) 14%, transparent), transparent 70%),
+    radial-gradient(35% 30% at 85% 70%, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent 70%),
+    linear-gradient(color-mix(in oklab, var(--color-foreground) 4%, transparent) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, color-mix(in oklab, var(--color-foreground) 4%, transparent) 1px, transparent 1px) 0 0 / 40px 40px;
+  animation: bg-drift 18s ease-in-out infinite alternate;
+}
+@keyframes bg-drift { to { transform: translate3d(4%, -3%, 0) scale(1.05); } }
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
