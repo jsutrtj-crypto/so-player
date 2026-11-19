@@ -471,3 +471,12 @@ button:active, a[data-slot="button"]:active, [data-slot="button"]:active, .btn-g
 @media (prefers-reduced-motion: reduce) {
   .wave-letter, button:active, [data-slot="button"]:active { animation: none !important; }
 }
+
+/* Big headings: letters bounce one after another with a moving red color */
+h2.font-display .wave-letter, h1 .wave-letter {
+  background: linear-gradient(90deg, var(--color-foreground), var(--color-primary), #ff5a7a, var(--color-foreground));
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: wave-letter 2.4s ease-in-out infinite, wave-color 5s linear infinite;
+}
+@keyframes wave-color { to { background-position: 300% 0; } }

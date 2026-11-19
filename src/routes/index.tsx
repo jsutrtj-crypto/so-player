@@ -1,3 +1,4 @@
+import { WaveHeadings } from "@/components/WaveHeadings";
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -65,6 +66,7 @@ function HomePage() {
         <PlatformDownloads />
         <MoreSections />
         <AboutApp />
+        <WaveHeadings />
       </main>
       <Footer />
     </div>
