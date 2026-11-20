@@ -1,8 +1,74 @@
-# So Player
+<div align="center">
+
+<img src="public/favicon.svg" width="96" alt="SO PLAYER logo"/>
+
+# SK SO PLAYER
+
+### Your Entertainment, One Player.
+
+**Official website of SO PLAYER — the all-in-one Android video & music platform.**
+Watch every kind of video, download YouTube videos and music, and save videos from Facebook, Instagram and TikTok in HD or MP3.
+
+[![Website](https://img.shields.io/badge/Website-so--player.lovable.app-FF101B?style=for-the-badge)](https://so-player.lovable.app)
+[![Android](https://img.shields.io/badge/Android-APK-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://so-player.lovable.app/#download)
+[![Free](https://img.shields.io/badge/Price-Free-111111?style=for-the-badge)](https://so-player.lovable.app)
+
+**[⬇ Download the latest APK](https://so-player.lovable.app/#download)**
+
+</div>
+
+---
+
+## 📱 App screenshots
+
+<table>
+<tr><td align="center"><img src="src/assets/screen-home.jpg" width="200" alt="SO PLAYER Home screen"/><br/><b>Home</b></td><td align="center"><img src="src/assets/screen-shorts.jpg" width="200" alt="SO PLAYER Shorts screen"/><br/><b>Shorts</b></td><td align="center"><img src="src/assets/screen-music.jpg" width="200" alt="SO PLAYER Music screen"/><br/><b>Music</b></td><td align="center"><img src="src/assets/screen-subscriptions.jpg" width="200" alt="SO PLAYER Subscriptions screen"/><br/><b>Subscriptions</b></td></tr>
+<tr><td align="center"><img src="src/assets/screen-library.jpg" width="200" alt="SO PLAYER Library screen"/><br/><b>Library</b></td><td align="center"><img src="src/assets/screen-video-player.jpg" width="200" alt="SO PLAYER Watch & Play screen"/><br/><b>Watch & Play</b></td><td align="center"><img src="src/assets/screen-settings.jpg" width="200" alt="SO PLAYER Settings screen"/><br/><b>Settings</b></td></tr>
+</table>
+
+## ⬇ How to download videos with SO PLAYER
+
+<table>
+<tr><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/f440d5db-c951-4053-8b27-b35a1280828c/dl-share-option.png" width="200" alt="1. Tap Share"/><br/><b>1. Tap Share</b></td><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/dcbb7ce1-b115-4eb3-adb6-843da08a632b/dl-share-more.png" width="200" alt="2. Tap More"/><br/><b>2. Tap More</b></td><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/4b3e20c4-ba3c-4afa-805c-517fc81c03a9/dl-share-so-player.png" width="200" alt="3. Pick So_Player"/><br/><b>3. Pick So_Player</b></td></tr>
+<tr><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/53544be5-5521-4228-98e9-fda55b02ec32/dl-pick-quality.png" width="200" alt="4. Pick quality"/><br/><b>4. Pick quality</b></td><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/94ae54a6-f78e-4a1f-a4cc-f3c5d5ec1f28/dl-format-download.png" width="200" alt="5. Download"/><br/><b>5. Download</b></td><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/4e6d83ea-9376-4d4d-9cfc-b3baacd041a1/dl-browser-share.png" width="200" alt="6. From browser"/><br/><b>6. From browser</b></td></tr>
+</table>
+
+## 🛡 How to install the APK safely
+
+<table>
+<tr><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/2a2f847d-a3cd-4e43-bfd9-fee5dde48ee2/install-scan-start.png" width="200" alt="Scan app"/><br/><b>Scan app</b></td><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/65f80ab0-448d-42ca-b754-27ad26fce84f/install-scan-progress.png" width="200" alt="Scanning"/><br/><b>Scanning</b></td><td align="center"><img src="https://so-player.lovable.app/__l5e/assets-v1/57d20bc2-098b-4e00-b287-c4805f5cd6e3/install-scan-result.png" width="200" alt="App looks safe"/><br/><b>App looks safe</b></td></tr>
+</table>
+
+## ✨ Features
+
+- 🎬 Movies, shows, shorts and HD video playback
+- 🎵 Music player with top songs, charts and library
+- ⬇ YouTube, Facebook, Instagram & TikTok video download (HD / MP3)
+- 🌐 Bangla & English guides
+- ⚡ Lightweight, fast and free
+
+## 🌐 Website pages
+
+| Page | Link |
+|---|---|
+| Home & download | https://so-player.lovable.app |
+| About | https://so-player.lovable.app/about |
+| Services | https://so-player.lovable.app/services |
+| Privacy Policy | https://so-player.lovable.app/privacy-policy |
+
+## 📸 Original design references
+
 ![SO Player Screenshot](https://github.com/jsutrtj-crypto/so-player/blob/7c97461382693de534596c1eed11b0cc3879a732/file_00000000ea908208a250511805fced15.png?raw=true)
+![SO Player Screenshot](https://github.com/jsutrtj-crypto/so-player/blob/7b3ce09236e53fe7fad0892a8b9d029f45ee77e4/file_00000000df248208894ae24ed7ef877d.png?raw=true)
+
+## 📬 Contact
+
+Questions or feedback: **sksiam827@gmail.com**
+
+<details>
+<summary>Original project brief</summary>
 
 MASTER PROMPT — SO PLAYER OFFICIAL WEBSITE
-![SO Player Screenshot](https://github.com/jsutrtj-crypto/so-player/blob/7b3ce09236e53fe7fad0892a8b9d029f45ee77e4/file_00000000df248208894ae24ed7ef877d.png?raw=true)
 
 1. PROJECT OVERVIEW
 
@@ -688,3 +754,5 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+</details>
