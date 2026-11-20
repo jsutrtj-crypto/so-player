@@ -1,7 +1,7 @@
 # So Player
 
 MASTER PROMPT — SO PLAYER OFFICIAL WEBSITE
-
+https://github.com/jsutrtj-crypto/so-player/blob/7b3ce09236e53fe7fad0892a8b9d029f45ee77e4/file_00000000df248208894ae24ed7ef877d.png
 1. PROJECT OVERVIEW
 
 Build a complete, modern, premium, fully responsive official website for an Android entertainment application named SO PLAYER.
