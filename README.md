@@ -1,4 +1,5 @@
 # So Player
+![SO Player Screenshot](https://github.com/jsutrtj-crypto/so-player/blob/7c97461382693de534596c1eed11b0cc3879a732/file_00000000ea908208a250511805fced15.png?raw=true)
 
 MASTER PROMPT — SO PLAYER OFFICIAL WEBSITE
 ![SO Player Screenshot](https://github.com/jsutrtj-crypto/so-player/blob/7b3ce09236e53fe7fad0892a8b9d029f45ee77e4/file_00000000df248208894ae24ed7ef877d.png?raw=true)
