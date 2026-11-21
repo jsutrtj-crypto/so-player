@@ -78,6 +78,8 @@
   --shadow-panel-active: 0 18px 36px -20px color-mix(in oklab, var(--primary) 55%, transparent);
   --gradient-panel: linear-gradient(145deg, color-mix(in oklab, var(--primary) 6%, var(--card)), var(--card) 48%, color-mix(in oklab, var(--primary) 3%, var(--card)));
   --gradient-button-sheen: linear-gradient(115deg, transparent 25%, color-mix(in oklab, var(--primary-foreground) 24%, transparent) 50%, transparent 75%);
+  --editorial-surface: color-mix(in oklab, var(--category-video) 3%, var(--background));
+  --legal-rule: color-mix(in oklab, var(--primary) 25%, var(--border));
 }
 
 .dark {
@@ -203,6 +205,8 @@
 .footer-accent {
   background: linear-gradient(to bottom, color-mix(in oklab, var(--primary) 4%, var(--background)), var(--background) 65%);
 }
+.editorial-section { background: var(--editorial-surface); }
+.legal-section { border-top: 1px solid var(--legal-rule); }
 @media (prefers-reduced-motion: reduce) {
   .premium-panel, #download .btn-glow, #download .btn-glow::after { transition: none; }
   .premium-panel:hover, .premium-panel:focus-within, .premium-panel:active, #download .btn-glow:active { transform: none; }

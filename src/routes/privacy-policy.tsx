@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { privacyPolicy } from "@/data/privacy";
 import { siteConfig } from "@/data/site";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/privacy-policy")({
   staticData: { sitemap: true },
@@ -49,6 +50,14 @@ function PrivacyPolicyPage() {
                 <p className="mt-3 leading-relaxed text-muted-foreground">{section.body}</p>
               </section>
             ))}
+          </div>
+
+          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+            Lovable collects visitor analytics for us. <a href="https://lovable.dev/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline">Lovable's privacy policy</a> explains how it handles this information. Privacy requirements differ by country; this page is a description of current website behavior, not a legal compliance certification.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Button asChild variant="outline"><Link to="/terms">Terms of Use</Link></Button>
+            <Button asChild variant="outline"><Link to="/download-safety">Download Safety</Link></Button>
           </div>
 
           <section className="mt-8 rounded-2xl border bg-muted/60 p-5 sm:p-6">

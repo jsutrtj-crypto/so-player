@@ -19,8 +19,8 @@ const categories = [
 ] as const;
 
 const benefits = [
-  { icon: ShieldCheck, label: "100% Safe\nAndroid APK" },
-  { icon: Zap, label: "Lightweight\n& Fast" },
+  { icon: ShieldCheck, label: "Original file\nAndroid APK" },
+  { icon: Zap, label: "Direct download\nNo account needed" },
   { icon: MonitorSmartphone, label: "All-in-One\nEntertainment" },
 ];
 

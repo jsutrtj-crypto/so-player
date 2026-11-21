@@ -7,7 +7,7 @@ export const siteConfig = {
   url: "https://so-player.lovable.app",
   tagline: "Your Entertainment, One Player.",
   description:
-    "SO PLAYER is a powerful and lightweight Android media app for movies, shows, music, shorts and more. A smooth, modern and personalized entertainment experience — all in one place.",
+    "Watch videos, explore shorts and enjoy music with SO PLAYER. Save supported YouTube, Facebook, Instagram and TikTok videos, choose the available video quality or audio format, and keep your history, downloads and playlists together on Android.",
   copyright: "© 2026 SO PLAYER. All rights reserved.",
 };
 
@@ -28,6 +28,8 @@ export const legalLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Use", href: "/terms" },
+  { label: "Download Safety", href: "/download-safety" },
 ] as const;
 
 /**

@@ -11,9 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as DownloadSafetyRouteImport } from './routes/download-safety'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ApiDevCopyUploadsRouteImport } from './routes/api/dev-copy-uploads'
 import { Route as ApiPublicApkRouteImport } from './routes/api/public/apk'
 import { Route as ApiPublicDevCopyUploadsRouteImport } from './routes/api/public/dev-copy-uploads'
@@ -26,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadSafetyRoute = DownloadSafetyRouteImport.update({
+  id: '/download-safety',
+  path: '/download-safety',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -41,6 +48,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiDevCopyUploadsRoute = ApiDevCopyUploadsRouteImport.update({
@@ -62,9 +74,11 @@ const ApiPublicDevCopyUploadsRoute = ApiPublicDevCopyUploadsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/download-safety': typeof DownloadSafetyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
   '/api/public/apk': typeof ApiPublicApkRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
@@ -72,9 +86,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/download-safety': typeof DownloadSafetyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
   '/api/public/apk': typeof ApiPublicApkRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
@@ -83,9 +99,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/download-safety': typeof DownloadSafetyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/api/dev-copy-uploads': typeof ApiDevCopyUploadsRoute
   '/api/public/apk': typeof ApiPublicApkRoute
   '/api/public/dev-copy-uploads': typeof ApiPublicDevCopyUploadsRoute
@@ -95,9 +113,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/download-safety'
     | '/privacy-policy'
     | '/services'
     | '/sitemap.xml'
+    | '/terms'
     | '/api/dev-copy-uploads'
     | '/api/public/apk'
     | '/api/public/dev-copy-uploads'
@@ -105,9 +125,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/download-safety'
     | '/privacy-policy'
     | '/services'
     | '/sitemap.xml'
+    | '/terms'
     | '/api/dev-copy-uploads'
     | '/api/public/apk'
     | '/api/public/dev-copy-uploads'
@@ -115,9 +137,11 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/download-safety'
     | '/privacy-policy'
     | '/services'
     | '/sitemap.xml'
+    | '/terms'
     | '/api/dev-copy-uploads'
     | '/api/public/apk'
     | '/api/public/dev-copy-uploads'
@@ -126,9 +150,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  DownloadSafetyRoute: typeof DownloadSafetyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   ApiDevCopyUploadsRoute: typeof ApiDevCopyUploadsRoute
   ApiPublicApkRoute: typeof ApiPublicApkRoute
   ApiPublicDevCopyUploadsRoute: typeof ApiPublicDevCopyUploadsRoute
@@ -150,6 +176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/download-safety': {
+      id: '/download-safety'
+      path: '/download-safety'
+      fullPath: '/download-safety'
+      preLoaderRoute: typeof DownloadSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy-policy': {
       id: '/privacy-policy'
       path: '/privacy-policy'
@@ -169,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/dev-copy-uploads': {
@@ -198,9 +238,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  DownloadSafetyRoute: DownloadSafetyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   ApiDevCopyUploadsRoute: ApiDevCopyUploadsRoute,
   ApiPublicApkRoute: ApiPublicApkRoute,
   ApiPublicDevCopyUploadsRoute: ApiPublicDevCopyUploadsRoute,
