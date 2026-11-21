@@ -27,13 +27,22 @@ export interface AppVersion {
 
 export const appVersions: AppVersion[] = [
   {
+    version: "3.0.14",
+    releaseDate: "21 November 2026",
+    fileSize: "210.0 MB",
+    fileSizeBytes: 220250901,
+    downloadUrl: null,
+    storagePath: "SO-PLAYER-3.0.14.apk",
+    isLatest: true,
+  },
+  {
     version: "3.0.13",
     releaseDate: "19 November 2026",
     fileSize: "210.0 MB",
     fileSizeBytes: 220241993,
     downloadUrl: null,
     storagePath: "SO-PLAYER-3.0.13.apk",
-    isLatest: true,
+    isLatest: false,
   },
   {
     version: "3.0.12",
