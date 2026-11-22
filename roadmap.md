@@ -1,4 +1,5 @@
-- [ ] Improve original app description and presentation, update factual website privacy disclosures, add terms and download safety pages; preserve screenshots and APK behavior.
+- [x] Add supplied Yandex verification file and meta tag; HTTP 200 and exact token verified locally, Google verification preserved. Publish and Yandex ownership confirmation remain owner actions.
+- [x] Improve original app description and presentation, update factual website privacy disclosures, add terms and download safety pages; mobile/desktop navigation, images, languages and 18 tests verified. Android app-specific data practices remain unverified pending owner details.
 - [x] Set uploaded 3.0.14 as latest; preserved 3.0.13 and all older APKs. Mobile main-button download verified: 220250901 bytes, SHA-256 identical to owner's upload; 16 targeted tests passed.
 - [x] Correct Google search identity to SK SO PLAYER and refine the external downloader section with clean white surfaces; checked all three page titles/descriptions, mobile/desktop layout and 17 tests.
 - [x] Update search identity to SK SHOW PLAYER and add all six supplied external downloader links without redesigning existing sections; verified route metadata, desktop/mobile layout, TikTok destination and 17 tests.
