@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AppDetailsRouteImport } from './routes/app-details'
 import { Route as DownloadSafetyRouteImport } from './routes/download-safety'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -28,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppDetailsRoute = AppDetailsRouteImport.update({
+  id: '/app-details',
+  path: '/app-details',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DownloadSafetyRoute = DownloadSafetyRouteImport.update({
@@ -74,6 +80,7 @@ const ApiPublicDevCopyUploadsRoute = ApiPublicDevCopyUploadsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/app-details': typeof AppDetailsRoute
   '/download-safety': typeof DownloadSafetyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/app-details': typeof AppDetailsRoute
   '/download-safety': typeof DownloadSafetyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/app-details': typeof AppDetailsRoute
   '/download-safety': typeof DownloadSafetyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/app-details'
     | '/download-safety'
     | '/privacy-policy'
     | '/services'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/app-details'
     | '/download-safety'
     | '/privacy-policy'
     | '/services'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/app-details'
     | '/download-safety'
     | '/privacy-policy'
     | '/services'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AppDetailsRoute: typeof AppDetailsRoute
   DownloadSafetyRoute: typeof DownloadSafetyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ServicesRoute: typeof ServicesRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app-details': {
+      id: '/app-details'
+      path: '/app-details'
+      fullPath: '/app-details'
+      preLoaderRoute: typeof AppDetailsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/download-safety': {
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AppDetailsRoute: AppDetailsRoute,
   DownloadSafetyRoute: DownloadSafetyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ServicesRoute: ServicesRoute,
